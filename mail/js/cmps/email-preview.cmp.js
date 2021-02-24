@@ -12,9 +12,7 @@ export default {
     `,
     computed: {
         dateToShow() {
-
             var ts = new Date(this.mail.sentAt);
-            // console.log(ts.toDateString());
             new Date()
             return `${ts.getMonth()+1} / ${ts.getDate()} / ${ts.getFullYear()} `
         }
