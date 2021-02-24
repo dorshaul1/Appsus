@@ -28,13 +28,16 @@ export default {
     methods: {
         compose() {
             console.log('hi');
-        }
-    },
-    created() {
-        mailServices.query()
+        },
+        loadMails(){
+            mailServices.query()
             .then(mails=> {
                 console.log('mails:', mails)
                 this.mails = mails
             })
+        }
+    },
+    created() {
+        this.loadMails()
     },
 }
