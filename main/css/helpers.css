@@ -1,0 +1,25 @@
+
+/* .red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.black {
+    color: black;
+} */
+
+.common-width {
+    width: 1400px;
+}
+
+.router-link-active {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.padding-left {
+    padding-left: 50px;
+}

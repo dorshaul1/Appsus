@@ -1,5 +1,6 @@
 
-import appsusHome from './apps/appsus-pages/appsus-home-page.cmp.js'
+import appsusHome from '../../home/js/appsus-home-page.cmp.js'
+import keepPage from '../../keeps/js/pages/keep-page.cmp.js'
 // import bookDetails from './pages/book-details.cmp.js'
 // import homePage from './pages/home-page.cmp.js'
 // import aboutPage from './pages/about-page.cmp.js'
@@ -13,10 +14,10 @@ const routes = [
         path: '/',
         component: appsusHome,
     },
-    // {
-    //     path: '/book',
-    //     component: bookApp,
-    // },
+    {
+        path: '/keep',
+        component: keepPage,
+    },
     // {
     //     path: '/about',
     //     component: aboutPage,
