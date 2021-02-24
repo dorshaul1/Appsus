@@ -4,8 +4,8 @@ import emailList from '../cmps/email-list.cmp.js'
 
 export default {
     template: `
-    <section class="mail-page flex column">
-        <div class="mail-main-container flex">
+    <section class="mail-page flex column center">
+        <div class="mail-main-container flex center">
             <div class="mail-options-container flex column align-items">
                 <compose-btn @compose="compose"/>
             </div>

@@ -61,8 +61,15 @@ function query() {
     return storageService.query(MAIL_KEY)
 }
 
-function getMailById(id){
-    return storageService.get(id)
+function getMailById(mailId) {
+    return storageService.query(MAIL_KEY)
+        .then((mails) => {
+            console.log('mails:', mails)
+            mails.find(mail => {
+                console.log('mail:', mail)
+                { mail.id === mailId }
+            })
+        })
 }
 
 
