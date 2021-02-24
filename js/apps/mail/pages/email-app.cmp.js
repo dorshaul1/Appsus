@@ -9,11 +9,11 @@ export default {
         <div class="mail-main-container flex center">
             <div class="mail-options-container flex column align-items">
                 <compose-btn @compose="compose"/>
-                <choosen-option :chooseName="'inbox'" @click.native="choose('inbox')"/>
-                <choosen-option :chooseName="'favorites'" @click.native="choose('favorites')"/>
+                <choosen-option :chooseName="'inbox'" @click.native="filterAll" :class="isActive('inbox')"/>
+                <choosen-option :chooseName="'favorites'" @click.native="getFavorite" :class="isActive('favorites')" />
             </div>
             <div class="mail-massage-container">
-                <email-list v-if="choosenOption = 'inbox'" :mails="mails" @deleteMail = "deleteMail"/>
+                <email-list :mails="mails" @deleteMail = "deleteMail"/>
             </div>
         </div>
     </section>
@@ -43,9 +43,18 @@ export default {
             mailServices.deleteMail(mail)
                 .then((mails) => this.mails = mails)
         },
-        choose(name){
-            console.log('name:', name)
-
+        filterAll() {
+            this.choosenOption = 'inbox'
+            mailServices.query()
+                .then(mails => this.mails = mails)
+        },
+        getFavorite() {
+            this.choosenOption = 'favorites'
+            mailServices.filterByFavorites()
+                .then(mails => this.mails = mails)
+        },
+        isActive(name){
+            return {'active-option' : this.choosenOption === name}
         }
 
     },

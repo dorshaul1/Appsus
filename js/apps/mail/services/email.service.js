@@ -8,7 +8,8 @@ export const mailServices = {
     getMailById,
     updateMail,
     deleteMail,
-    updateMails
+    // updateMails,
+    filterByFavorites
 }
 
 const MAIL_KEY = 'mailsDB'
@@ -97,9 +98,15 @@ function updateMail(mail) {
 
 function deleteMail(mail) {
     return storageService.remove(MAIL_KEY, mail.id)
-        .then(() => updateMails())
+        .then(() => query())
 }
 
-function updateMails() {
+// function updateMails() {
+//     return query()
+// }
+
+function filterByFavorites(){
     return query()
+        .then(mails => mails.filter(mail=>mail.isFavorite))
+        // .then (data=>console.log(data))
 }
