@@ -1,5 +1,5 @@
 
-// import { storageService } from '../../js/services/async-storage-service.js'
+import { storageService } from '../../../services/async-storage-service.js'
 
 
 
@@ -8,7 +8,7 @@ export const noteService = {
 }
 
 function getNotes() {
-    return Promise.resolve(notes);
+    return Promise.resolve(notes)
 }
 
 
