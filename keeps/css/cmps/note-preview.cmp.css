@@ -1,0 +1,12 @@
+.note-preview {
+    break-inside: avoid;
+    border: 1px outset gray;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: azure;
+    margin-bottom: 10px;
+}
+

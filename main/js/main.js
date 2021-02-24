@@ -8,11 +8,9 @@ const options = {
     router: myRouter,
     template: `
         <section>
-            <main-header />
             <!-- <user-msg /> -->
-            <!-- <app-header /> -->
+            <main-header />
             <router-view />
-            <!-- <app-footer /> -->
         </section>
     `,
     components:{

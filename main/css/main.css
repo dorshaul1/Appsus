@@ -15,6 +15,13 @@
 @import url("../../mail/css/cmps/email-list.cmp.css"); 
 @import url("../../mail/css/cmps/email-preview.cmp.css"); 
 
+/* NOTES */
+
+@import url("../../keeps/css/pages/notes-app.cmp.css"); 
+@import url("../../keeps/css/cmps/note-preview.cmp.css"); 
+@import url("../../keeps/css/cmps/notes-list.cmp.css"); 
+
+
 
 
 * {
@@ -36,6 +43,10 @@ ul {
     margin: 0;
 }
 
+img, video, audio {
+    max-width: 100%;
+    height: auto;
+}
 
 /* HEADER */
 
