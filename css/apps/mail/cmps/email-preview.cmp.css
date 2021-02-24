@@ -1,11 +1,12 @@
 .email-preview{
     /* height: 20px; */
     background-color: rgba(255, 255, 255, 0.329);
-    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(204, 204, 204);
     display: flex;
     padding: 10px;
     width: 100%;
-    border-radius: 7px;
+    /* border-radius: 7px; */
+    position: relative;
     /* height: 60px; */
 }
 
@@ -41,3 +42,14 @@
 .read{
     background-color: white;
 }
+/* 
+.pass-down-preview{
+    background-color: white;
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    bottom: -80px;
+    left: 80px;
+    z-index: 1;
+
+} */

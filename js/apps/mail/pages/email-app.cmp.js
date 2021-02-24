@@ -4,7 +4,7 @@ import emailList from '../cmps/email-list.cmp.js'
 
 export default {
     template: `
-    <section class="mail-page flex column center">
+    <section v-if="mails" class="mail-page flex column center">
         <div class="mail-main-container flex center">
             <div class="mail-options-container flex column align-items">
                 <compose-btn @compose="compose"/>
@@ -29,15 +29,12 @@ export default {
         compose() {
             console.log('hi');
         },
-        loadMails(){
-            mailServices.query()
-            .then(mails=> {
-                console.log('mails:', mails)
-                this.mails = mails
-            })
-        }
+
     },
     created() {
-        this.loadMails()
+        mailServices.query()
+        .then(mails=> {
+            this.mails = mails
+        })
     },
 }

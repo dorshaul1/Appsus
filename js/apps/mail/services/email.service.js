@@ -5,13 +5,16 @@ import { storageService } from '../../../services/async-storage-service.js'
 export const mailServices = {
     createMail,
     query,
-    getMailById
+    getMailById,
+    updateMail
 }
 
 const MAIL_KEY = 'mailsDB'
 
 const gMails = [
     {
+        isClicked: false,
+        mailAdress: 'Puki@bla.bla',
         id: utilService.makeId(),
         from: 'Puki',
         subject: 'Wassap?',
@@ -20,14 +23,18 @@ const gMails = [
         sentAt: Date.now()
     },
     {
+        isClicked: false,
+        mailAdress: 'Muki@bla.bla',
         id: utilService.makeId(),
-        from: 'Puki',
+        from: 'Muki',
         subject: 'Wassap Man?',
         body: 'yo yo!',
         isRead: false,
         sentAt: Date.now()
     },
     {
+        isClicked: false,
+        mailAdress: 'Dor@bla.bla',
         id: utilService.makeId(),
         from: 'Dor',
         subject: 'hi?',
@@ -36,6 +43,8 @@ const gMails = [
         sentAt: Date.now()
     },
     {
+    isClicked: false,        
+        mailAdress: 'Yonatan@bla.bla',        
         id: utilService.makeId(),
         from: 'Yonatan',
         subject: 'how are you?',
@@ -44,7 +53,7 @@ const gMails = [
         sentAt: Date.now()
     }]
 
-_saveMailsToStorage()
+// _saveMailsToStorage()
 
 function createMail() {
     const mail =
@@ -59,22 +68,31 @@ function createMail() {
 
 function query() {
     return storageService.query(MAIL_KEY)
+        .then((mails) => {
+            if (!mails.length) {
+                utilService.saveToStorage(MAIL_KEY, gMails)
+                // books = booksList
+            }
+            // console.log('mails:', mails)
+            return mails
+        });
 }
 
 function getMailById(mailId) {
-    return storageService.query(MAIL_KEY)
-        .then((mails) => {
-            console.log('mails:', mails)
-            mails.find(mail => {
-                console.log('mail:', mail)
-                { mail.id === mailId }
-            })
-        })
+    return storageService.get(MAIL_KEY, mailId)
+    // .then((mails) => {
+    // })
 }
 
-getMailById('LSV8I')
-.then(mail => console.log(mail))
-
-function _saveMailsToStorage() {
-    utilService.saveToStorage(MAIL_KEY, gMails)
+function updateMail(mail){
+    storageService.put(MAIL_KEY, mail)
 }
+
+// function getMailById(id){
+
+//     .then(mail => console.log(mail))
+// }
+
+// function _saveMailsToStorage() {
+//     utilService.saveToStorage(MAIL_KEY, gMails)
+// }
