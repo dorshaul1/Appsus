@@ -36,11 +36,16 @@
     align-items: center;
 }
 
-.center{
+.flex.center{
     align-items: center;
     justify-content: center;
 }
 
 .column{
     flex-direction: column;
+}
+
+.center-self{
+    align-self: center;
+    justify-self: center;
 }

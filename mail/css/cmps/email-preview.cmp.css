@@ -1,0 +1,43 @@
+.email-preview{
+    /* height: 20px; */
+    background-color: rgba(255, 255, 255, 0.329);
+    margin-bottom: 10px;
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    border-radius: 7px;
+    /* height: 60px; */
+}
+
+.email-preview:hover{
+    cursor: pointer;
+}
+
+.mail-prev-from{
+    font-size: 30px;
+    flex-basis: 20%;
+}
+
+.mail-prev-content{
+    display: flex;
+    flex-basis: 70%;
+}
+
+.mail-prev-date{
+    font-size: 15px;
+    
+    flex-basis: 10%;
+}
+
+.mail-prev-subject{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.mail-prev-body{
+    color: rgb(179, 179, 179);
+}
+
+.read{
+    background-color: white;
+}
