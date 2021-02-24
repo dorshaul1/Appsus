@@ -3,7 +3,7 @@ export default {
     template: `
     <section class="note-todos">
         <ul>
-            <li v-for="(todo, idx) in info.todos" :key='idx'> {{todo.txt}} </li>
+            <li v-for="(todo, idx) in info.todos" :key='idx'> {{todo.txt}} <hr></li>
         </ul>   
     </section>
     `,
@@ -11,6 +11,5 @@ export default {
         
     },
     created() {
-        // console.log('fucking todo', this.info.todos);
     }
-}
+} 

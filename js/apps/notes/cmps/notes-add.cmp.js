@@ -1,56 +1,63 @@
-import { storageService } from '../../../services/async-storage-service.js'
 import { noteService } from '../services/notes.service.js'
 
 
 export default {
     template: `
-    <section v-if="currInput" class="notes-add">
+    <section v-if="currInput" class="notes-add flex">
         <form @submit.prevent="saveNote">
-            <input  autocomplete="off" v-model="emptyNote" :placeholder="currInput.placeholder" :type="currInput.type" />
+            <input  autocomplete="off" v-model="emptyNote.txt" :placeholder="currInput.placeholder" :type="currInput.type" />
         </form>
             <div>
                 <a @click="setInput(0)">text</a>
                 <a @click="setInput(1)">photo</a>
                 <a @click="setInput(2)">video</a>
             <a @click="setInput(3)">todo</a>
-            <pre>
+            <!-- <pre>
                 {{emptyNote}}
-            </pre>
+            </pre> -->
         </div>
     </section>
     `,
     data() {
         return {
             inputTypes: null,
-            currInputIdx: 0,
+            currInputIdx: null,
             currInput: null,
-            emptyNote: null
+            emptyNote: {
+                txt: '',
+                typeIdx: null
+            }
         }
     },
     methods: {
         getInputTypes() {
             noteService.getInputTypes()
             .then(inputTypes => {
-                this.inputTypes = inputTypes
-                this.setInput()
-            })
+                this.inputTypes = inputTypes;
+                this.setInput();
+            });
         },
         setInput(inputIdx = 0) {
             this.currInputIdx = inputIdx;
             this.currInput = this.inputTypes[this.currInputIdx];
+            this.emptyNote.typeIdx = this.currInputIdx;
         },
         saveNote() {
-            noteService.saveNote(this.currInputIdx, this.emptyNote)
-            .then (ans => {
-                this.$emit('noteAdded');
-            })
+            this.$emit('addNote', this.emptyNote);
             this.emptyNote = null;
+            this.getEmptyNote()
+        },
+        getEmptyNote() {
+            this.emptyNote = {
+                txt: null,
+                typeIdx: this.currInputIdx
+            }
         }
     },
     computed: {
     },
     created() {
-        this.getInputTypes()
+        this.getInputTypes()    
     },
 
 }
