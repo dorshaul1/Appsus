@@ -3,7 +3,6 @@ import { noteService } from '../services/notes.service.js'
 import NotePreview from './note-preview.cmp.js'
 import AddNote from './notes-add.cmp.js'
 import { eventBus } from '../../../services/event-bus-service.js'
-import { storageService } from '../../../services/async-storage-service.js'
 
 
 export default {
@@ -11,7 +10,7 @@ export default {
     <section v-if="notes" class="notes-list flex column align-items">
         <add-note @addNote="addNote" />
         <div class="notes-container common-width">
-               <note-preview @remove="removeNote" v-for="(note, idx) in notes" :note="note" :key="idx" />
+               <note-preview @saveNote="saveNote" @remove="removeNote" v-for="(note, idx) in notes" :note="note" :key="idx" />
         </div>
     </section>
     `,
@@ -28,7 +27,7 @@ export default {
                 });
         },
         addNote(newNote) {
-            noteService.saveNote(newNote)
+            noteService.addNote(newNote)
                 .then(this.getNotes)
         },
         removeNote(noteId) {
@@ -37,6 +36,10 @@ export default {
         },
         updateNote(newTxt, note) {
             noteService.updateNote(newTxt, note)
+                .then(this.getNotes)
+        },
+        saveNote(note) {
+            noteService.saveNote(note)
                 .then(this.getNotes)
         }
     },

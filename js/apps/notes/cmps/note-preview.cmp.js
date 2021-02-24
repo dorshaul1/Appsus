@@ -8,23 +8,23 @@ import noteEdit from './note-edit.cmp.js'
 export default {
     props: ['note'],
     template: `
-    <section class="note-preview flex column">
+    <section :style=" { background: getColor } " class="note-preview flex column">
         <component :is="note.type" :info="note.info" @setVal="setAns($event, idx)"></component>
         <div v-if="!isEditting" class="note-edit-btns">
             <button @click="remove">Remove</button>
             <button @click="edit">Edit</button>
             <button class="edit-color-btn">Color
                 <div class="colors-container">
-                    <span class="color-option" style="background-color: rgb(255, 255, 255);"> &nbsp; </span>
-                    <span class="color-option" style="background-color: rgb(255, 204, 136);"> &nbsp; </span>
-                    <span class="color-option" style="background-color: rgb(255, 255, 136);"> &nbsp; </span>
-                    <span class="color-option" style="background-color: rgb(204, 255, 153);"> &nbsp; </span>
-                    <span class="color-option" style="background-color: rgb(255, 136, 136);"> &nbsp; </span>
-                    <span class="color-option" style="background-color: rgb(170, 255, 238);"> &nbsp; </span>
-                    <span class="color-option" style="background-color: rgb(136, 221, 255);"> &nbsp; </span>
-                    <span class="color-option" style="background-color: rgb(136, 187, 255);"> &nbsp; </span>
-                    <span class="color-option" style="background-color: rgb(221, 187, 255);"> &nbsp; </span>
-                    <span class="color-option" style="background-color: rgb(221, 221, 221);"> &nbsp; </span>
+                    <span class="color-option" @click="setColor('rgb(255, 255, 255)')" style="background-color: rgb(255, 255, 255);"> &nbsp; </span>
+                    <span class="color-option" @click="setColor('rgb(255, 204, 136)')" style="background-color: rgb(255, 204, 136);"> &nbsp; </span>
+                    <span class="color-option" @click="setColor('rgb(204, 255, 153)')" style="background-color: rgb(204, 255, 153);"> &nbsp; </span>
+                    <span class="color-option" @click="setColor('rgb(255, 136, 136)')" style="background-color: rgb(255, 136, 136);"> &nbsp; </span>
+                    <span class="color-option" @click="setColor('rgb(170, 255, 238)')" style="background-color: rgb(170, 255, 238);"> &nbsp; </span>
+                    <span class="color-option" @click="setColor('rgb(255, 255, 136)')" style="background-color: rgb(255, 255, 136);"> &nbsp; </span>
+                    <span class="color-option" @click="setColor('rgb(136, 221, 255)')" style="background-color: rgb(136, 221, 255);"> &nbsp; </span>
+                    <span class="color-option" @click="setColor('rgb(136, 187, 255)')" style="background-color: rgb(136, 187, 255);"> &nbsp; </span>
+                    <span class="color-option" @click="setColor('rgb(221, 187, 255)')" style="background-color: rgb(221, 187, 255);"> &nbsp; </span>
+                    <span class="color-option" @click="setColor('rgb(221, 221, 221)')" style="background-color: rgb(221, 221, 221);"> &nbsp; </span>
                 </div>
             </button>
         </div>
@@ -33,7 +33,8 @@ export default {
     `,
     data() {
         return {
-            isEditting: false
+            isEditting: false,
+            chosenColor: 'white'
         }
     },
     methods: {
@@ -42,7 +43,23 @@ export default {
         },
         edit() {
             this.isEditting = true;
+        },
+        setColor(color) {
+            this.chosenColor = color;
+            this.note.style.backgroundColor = color;
+            this.$emit('saveNote', this.note);
+        },
+        checkBgc() {
+            if (this.note.style.backgroundColor) this.chosenColor = this.note.style.backgroundColor;
         }
+    },
+    computed: {
+        getColor() {
+            return this.chosenColor;
+        }
+    },
+    created() {
+        this.checkBgc();
     },
     components: {
         NoteTxt,
@@ -50,5 +67,5 @@ export default {
         NoteTodos,
         NoteVideo,
         noteEdit
-    }
+    },
 }

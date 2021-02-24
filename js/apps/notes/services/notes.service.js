@@ -6,9 +6,10 @@ const NOTES_KEY = 'notes';
 export const noteService = {
     query,
     getInputTypes,
-    saveNote,
+    addNote,
     removeNote,
-    updateNote
+    updateNote,
+    saveNote
 }
 
 function updateNote(newTxt, note) {
@@ -17,8 +18,6 @@ function updateNote(newTxt, note) {
             return storageService.put(NOTES_KEY, note)
         });
 }
-
-
 
 function setnewNoteTxt(newTxt, note) {
     switch (note.type) {
@@ -40,12 +39,18 @@ function setnewNoteTxt(newTxt, note) {
     return Promise.resolve(note);
 }
 
-
-
 function saveNote(note) {
+    return storageService.put(NOTES_KEY, note);
+}
+
+
+function addNote(note) {
     let newNote = {
         isPinned: false,
-        info: {}
+        info: {},
+        style: {
+            backgroundColor: 'white'
+        }
     }
 
     switch (note.typeIdx) {
@@ -83,7 +88,6 @@ function query() {
     return storageService.query(NOTES_KEY);
 }
 
-
 function getInputTypes() {
     return Promise.resolve(inputTypes);
 }
@@ -94,6 +98,9 @@ const notesDB = [
         isPinned: true,
         info: {
             txt: "Fullstack Me Baby!"
+        },
+        style: {
+            backgroundColor: "#00d"
         }
     },
     {   id: storageService.makeId(),
@@ -103,6 +110,9 @@ const notesDB = [
                 { txt: "Do that", doneAt: null },
                 { txt: "Do this", doneAt: 187111111 }
             ]
+        },
+        style: {
+            backgroundColor: "#00d"
         }
     },
     {   id: storageService.makeId(),
@@ -120,39 +130,6 @@ const notesDB = [
         isPinned: true,
         info: {
             txt: "Fullstack Me Baby!"
-        }
-    },
-    {   id: storageService.makeId(),
-        type: "NoteImg",
-        info: {
-            url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg",
-            title: "Me playing Mi"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {   id: storageService.makeId(),
-        type: "NoteTodos",
-        info: {
-            todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
-            ]
-        }
-    },
-    {   id: storageService.makeId(),
-        type: "NoteTxt",
-        isPinned: true,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },
-    {   id: storageService.makeId(),
-        type: "NoteImg",
-        info: {
-            url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg",
-            title: "Me playing Mi"
         },
         style: {
             backgroundColor: "#00d"
@@ -175,6 +152,9 @@ const notesDB = [
                 { txt: "Do that", doneAt: null },
                 { txt: "Do this", doneAt: 187111111 }
             ]
+        },
+        style: {
+            backgroundColor: "#00d"
         }
     },
     {   id: storageService.makeId(),
@@ -182,12 +162,60 @@ const notesDB = [
         isPinned: true,
         info: {
             txt: "Fullstack Me Baby!"
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
+    },
+    {   id: storageService.makeId(),
+        type: "NoteImg",
+        info: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg",
+            title: "Me playing Mi"
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
+    },
+    {   id: storageService.makeId(),
+        type: "NoteImg",
+        info: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg",
+            title: "Me playing Mi"
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
+    },
+    {   id: storageService.makeId(),
+        type: "NoteTodos",
+        info: {
+            todos: [
+                { txt: "Do that", doneAt: null },
+                { txt: "Do this", doneAt: 187111111 }
+            ]
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
+    },
+    {   id: storageService.makeId(),
+        type: "NoteTxt",
+        isPinned: true,
+        info: {
+            txt: "Fullstack Me Baby!"
+        },
+        style: {
+            backgroundColor: "#00d"
         }
     },
     {   id: storageService.makeId(),
         type: "NoteVideo",
         info: {
             url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        },
+        style: {
+            backgroundColor: "#00d"
         }
     }
 ]

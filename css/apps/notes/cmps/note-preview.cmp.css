@@ -30,12 +30,14 @@
     border-radius: 50%;
     width: 25px;
     height: 25px;
+    transition: transform .3s;
 }
 
 .color-option:hover {
-    border: 1px solid black;
+    border: 0.1px outset black;
     background-color: aqua;
     cursor: pointer;
+    transform: scale(1.2);
 }
 
 
