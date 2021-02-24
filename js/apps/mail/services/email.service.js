@@ -84,7 +84,6 @@ function getMailById(mailId) {
     // })
 }
 
-<<<<<<< HEAD
 function updateMail(mail){
     storageService.put(MAIL_KEY, mail)
 }
@@ -93,8 +92,6 @@ function updateMail(mail){
 
 //     .then(mail => console.log(mail))
 // }
-=======
->>>>>>> dfaa3e006492dd426626e7a6562f6a54d71dd051
 
 // function _saveMailsToStorage() {
 //     utilService.saveToStorage(MAIL_KEY, gMails)
