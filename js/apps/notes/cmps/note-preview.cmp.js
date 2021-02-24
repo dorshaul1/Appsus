@@ -4,8 +4,6 @@ import NoteTodos from './note-todos.cmp.js'
 import NoteVideo from './note-video.cmp.js'
 
 
-
-
 export default {
     props: ['note'],
     template: `

@@ -1,0 +1,50 @@
+/* BASIC  */
+
+@import url("./basic/helpers.css"); 
+@import url("./basic/font.css"); 
+
+/* APSUS */
+
+@import url("./pages/appsus-home-page.cmp.css"); 
+
+/* MAIL */
+
+@import url("./apps/mail/pages/mails-app.cmp.css"); 
+@import url("./apps/mail/cmps/email-compose.cmp.css"); 
+@import url("./apps/mail/cmps/email-list.cmp.css"); 
+@import url("./apps/mail/cmps/email-preview.cmp.css"); 
+
+/* NOTES */
+
+@import url("./apps/notes/pages/notes-app.cmp.css"); 
+@import url("./apps/notes/cmps/notes-list.cmp.css"); 
+@import url("./apps/notes/cmps/note-preview.cmp.css"); 
+
+/* HEADER */
+@import url("./cmps/app-header.cmp.css"); 
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+    margin: 0;
+}
+
+img, video, audio {
+    max-width: 100%;
+    height: auto;
+}
+
