@@ -6,7 +6,7 @@ export default {
             <div class="pass-down-prev-header-content flex space-between align-items">
                 {{mail.subject}}
                 <div class="pass-down-prev-options flex">
-                    <button class="delete-mail-btn flex align-items center"><img src="../../../../imgs/icons/delete.svg"></button>
+                    <button class="delete-mail-btn flex align-items center"><img src="../../../../imgs/icons/delete.svg" @click="deleteMail(mail)"></button>
                     <button class="full-screen-btn flex align-items center"><img src="../../../../imgs/icons/switch-to-full-screen-button.svg" @click="fullScreen(mail)"></button>
 
                 </div>
@@ -28,6 +28,9 @@ export default {
         methods: {
             fullScreen(mail){
                 this.$emit('fullScreen', mail)
+            },
+            deleteMail(mail){
+                this.$emit('delete', mail)
             }
         },
 }

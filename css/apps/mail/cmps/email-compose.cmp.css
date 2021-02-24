@@ -1,0 +1,13 @@
+.compose-btn{
+    border-radius: 50px;
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: rgb(247, 247, 247);
+    margin-bottom: 20px;
+}
+
+.compose-btn:hover{
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+}

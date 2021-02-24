@@ -2,6 +2,7 @@ export default {
     props: ['mail'],
     template: `
         <section class="email-preview flex align-items" :class="{read : !mail.isRead}" @click="select(mail)">
+            <span class= "fav-star" @click.stop='favorite' :class="{favorite : mail.isFavorite}">{{isFav}}</span>
             <h1 class="mail-prev-from">{{mail.from}}</h1>
             <div class="mail-prev-content">    
                 <p class="mail-prev-subject">{{mail.subject}}</p>
@@ -15,11 +16,18 @@ export default {
             var ts = new Date(this.mail.sentAt);
             new Date()
             return `${ts.getMonth()+1} / ${ts.getDate()} / ${ts.getFullYear()} `
+        },
+        isFav(){
+            // console.log('this.mail.isFavorite:', this.mail.isFavorite)
+            return this.mail.isFavorite ? '★' : '☆' 
         }
     },
     methods: {
         select() {
             this.$emit('select', this.mail)
+        },
+        favorite(){
+            this.$emit('favorite')
         }
     },
 }

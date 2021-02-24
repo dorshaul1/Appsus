@@ -15,6 +15,7 @@
 @import url("./apps/mail/cmps/email-list.cmp.css"); 
 @import url("./apps/mail/cmps/email-preview.cmp.css"); 
 @import url("./apps/mail/cmps/pass-down-preview.cmp.css"); 
+@import url("./apps/mail/cmps/choosen-option.cmp.css"); 
 
 /* NOTES */
 
@@ -32,6 +33,7 @@
 
 body {
     margin: 0;
+    user-select: none;
 }
 
 h1,

@@ -3,6 +3,8 @@
     padding: 10px;
     height: 150px;
     border-bottom: 1px solid rgb(204, 204, 204);
+    overflow: auto;
+
 }
 
 .pass-down-prev-header-content{
@@ -39,4 +41,8 @@
 .pass-down-prev-options button img{
     width: 20px;
 
+}
+
+.pass-down-prev-body-content{
+    overflow: auto;
 }
