@@ -5,9 +5,38 @@ const NOTES_KEY = 'notes';
 
 export const noteService = {
     query,
-    getInputTypes
+    getInputTypes,
+    saveNote
 }
 
+function saveNote(typeIdx, note) {
+    let newNote = {
+        isPinned: false,
+        info: {}
+    }
+
+    switch (typeIdx) {
+        case 0:
+            newNote.type = 'NoteTxt'
+            newNote.info.txt = note;
+            break;
+        case 1: newNote
+            newNote.type = 'NoteImg'
+            newNote.info.url = note;
+            break;
+        case 2:
+            newNote.type = 'NoteVideo'
+            newNote.info.url = note;
+            break;
+        case 3:
+            newNote.info.todos = note.split(',').map(todo => {
+                return { txt: todo, doneAt: null };
+            });
+            break;
+    }
+    // console.log(newNote);
+    return storageService.post(NOTES_KEY, newNote);
+}
 
 function query() {
     return storageService.query(NOTES_KEY)
@@ -127,13 +156,21 @@ const notesDB = [
 ]
 
 const inputTypes = [
-    {type: 'text',
-     placeholder: 'What’s on your mind...' },
-    {type: 'url',
-     placeholder: 'Enter image URL...' },
-    {type: 'url',
-     placeholder: 'Enter video URL...' },
-    {type: 'text',
-     placeholder: 'Enter comma separated list...' } 
+    {
+        type: 'text',
+        placeholder: 'What’s on your mind...'
+    },
+    {
+        type: 'url',
+        placeholder: 'Enter image URL...'
+    },
+    {
+        type: 'url',
+        placeholder: 'Enter video URL...'
+    },
+    {
+        type: 'text',
+        placeholder: 'Enter comma separated list...'
+    }
 ]
 
