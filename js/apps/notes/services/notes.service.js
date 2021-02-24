@@ -29,12 +29,12 @@ function saveNote(typeIdx, note) {
             newNote.info.url = note;
             break;
         case 3:
+            newNote.type = 'NoteTodos'
             newNote.info.todos = note.split(',').map(todo => {
                 return { txt: todo, doneAt: null };
             });
             break;
     }
-    // console.log(newNote);
     return storageService.post(NOTES_KEY, newNote);
 }
 
