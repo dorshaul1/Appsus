@@ -19,7 +19,7 @@ export default {
     methods: {
         select(mail) {
             mail.isRead = true
-            this.$router.push(`/details/${mail.id}`)
+            this.$router.push(`/mail/details/${mail.id}`)
         }
     }
 }
