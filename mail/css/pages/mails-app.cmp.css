@@ -1,9 +1,26 @@
 .mail-page{
-    height: 100vh;
+    height: 90vh;
+    /* width: 90%; */
     padding: 0 10px;
+    justify-content: center;
+    
 }
 
 .mail-main-container{
-    height: 80vh;
-    background-color: rgb(233, 233, 233);
+    height: 85vh;
+    background-color: rgb(241, 239, 239);
+    padding: 15px;
+    gap: 15px;
+}
+
+.mail-massage-container{
+    flex-basis: 80%;
+    background-color: rgb(223, 222, 222);
+
+}
+
+.mail-options-container{
+    flex-basis: 20%;
+    background-color: rgb(212, 209, 209);
+
 }

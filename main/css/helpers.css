@@ -43,3 +43,8 @@
 .column{
     flex-direction: column;
 }
+
+.center-self{
+    align-self: center;
+    justify-self: center;
+}
