@@ -1,7 +1,7 @@
 
 import appsusHome from '../../home/js/appsus-home-page.cmp.js'
 import keepPage from '../../keeps/js/pages/keep-page.cmp.js'
-// import bookDetails from './pages/book-details.cmp.js'
+import mailPage from '../../mail/js/pages/email-app.cmp.js'
 // import homePage from './pages/home-page.cmp.js'
 // import aboutPage from './pages/about-page.cmp.js'
 // import addBooks from './pages/add-books.cmp.js'
@@ -17,6 +17,10 @@ const routes = [
     {
         path: '/keep',
         component: keepPage,
+    },
+    {
+        path: '/mail',
+        component: mailPage,
     },
     // {
     //     path: '/about',

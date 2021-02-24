@@ -1,5 +1,6 @@
 
 import { myRouter } from './routes.js'
+import mainHeader from './cmps/header.cmp.js'
 
 
 const options = {
@@ -7,6 +8,7 @@ const options = {
     router: myRouter,
     template: `
         <section>
+            <main-header />
             <!-- <user-msg /> -->
             <!-- <app-header /> -->
             <router-view />
@@ -14,7 +16,7 @@ const options = {
         </section>
     `,
     components:{
-       
+        mainHeader
     }
 }
 

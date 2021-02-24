@@ -8,6 +8,13 @@
 
 @import url("../../home/css/appsus-home-page.cmp.css"); 
 
+/* mail */
+
+@import url("../../mail/css/pages/mails-app.cmp.css"); 
+@import url("../../mail/css/cmps/email-compose.cmp.css"); 
+@import url("../../mail/css/cmps/email-list.cmp.css"); 
+@import url("../../mail/css/cmps/email-preview.cmp.css"); 
+
 
 
 * {
@@ -27,4 +34,13 @@ h6,
 p,
 ul {
     margin: 0;
+}
+
+
+/* HEADER */
+
+.app-header{
+    /* width: 100%; */
+    background-color: rgb(189, 189, 189);
+    height: 10vh;
 }

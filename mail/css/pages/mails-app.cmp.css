@@ -1,0 +1,9 @@
+.mail-page{
+    height: 100vh;
+    padding: 0 10px;
+}
+
+.mail-main-container{
+    height: 80vh;
+    background-color: rgb(233, 233, 233);
+}
