@@ -65,8 +65,6 @@ function getMailById(id){
     return storageService.get(id)
 }
 
-getMailById('LSV8I')
-.then(mail => console.log(mail))
 
 function _saveMailsToStorage() {
     utilService.saveToStorage(MAIL_KEY, gMails)

@@ -1,13 +1,15 @@
 
 import { noteService } from '../services/notes.service.js'
 import NotePreview from './note-preview.cmp.js'
+import AddNote from './notes-add.cmp.js'
 
 
 export default {
     template: `
     <section v-if="notes" class="notes-list flex column align-items">
+        <add-note @noteAdded="getNotes" />
         <div class="notes-container common-width">
-               <note-preview v-for="(note, idx) in notes" :note="note" :key="idx" />
+               <note-preview  v-for="(note, idx) in notes" :note="note" :key="idx" />
         </div>
     </section>
     `,
@@ -21,7 +23,7 @@ export default {
             noteService.query()
                 .then(notes => {
                     this.notes = notes
-                    console.log(this.notes);
+                    // console.log(this.notes);
                 });
         }
 
@@ -30,6 +32,7 @@ export default {
         this.getNotes()
     },
     components: {
-        NotePreview
+        NotePreview,
+        AddNote
     }
 }

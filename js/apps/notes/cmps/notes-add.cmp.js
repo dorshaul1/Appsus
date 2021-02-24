@@ -1,15 +1,21 @@
+import { storageService } from '../../../services/async-storage-service.js'
 import { noteService } from '../services/notes.service.js'
 
 
 export default {
     template: `
-    <section class="notes-add">
-        <input autocomplete="off" :placeholder="What’s on your mind..." type="text" />
-        <div>
-            <a @click="setInput(0)">text</a>
-            <a @click="setInput(1)">photo</a>
-            <a @click="setInput(2)">video</a>
+    <section v-if="currInput" class="notes-add">
+        <form @submit.prevent="saveNote">
+            <input  autocomplete="off" v-model="emptyNote" :placeholder="currInput.placeholder" :type="currInput.type" />
+        </form>
+            <div>
+                <a @click="setInput(0)">text</a>
+                <a @click="setInput(1)">photo</a>
+                <a @click="setInput(2)">video</a>
             <a @click="setInput(3)">todo</a>
+            <pre>
+                {{emptyNote}}
+            </pre>
         </div>
     </section>
     `,
@@ -17,9 +23,8 @@ export default {
         return {
             inputTypes: null,
             currInputIdx: 0,
-            emptyNote: {
-                
-            }
+            currInput: null,
+            emptyNote: null
         }
     },
     methods: {
@@ -27,15 +32,23 @@ export default {
             noteService.getInputTypes()
             .then(inputTypes => {
                 this.inputTypes = inputTypes
-                console.log(this.inputTypes)
+                this.setInput()
             })
         },
-        setInput(inputIdx) {
+        setInput(inputIdx = 0) {
             this.currInputIdx = inputIdx;
-            console.log(this.currInputIdx);
+            this.currInput = this.inputTypes[this.currInputIdx];
+        },
+        saveNote() {
+            noteService.saveNote(this.currInputIdx, this.emptyNote)
+            .then (ans => {
+                this.$emit('noteAdded');
+            })
+            this.emptyNote = null;
         }
     },
-    
+    computed: {
+    },
     created() {
         this.getInputTypes()
     },
