@@ -13,6 +13,20 @@ export default {
         <div v-if="!isEditting" class="note-edit-btns">
             <button @click="remove">Remove</button>
             <button @click="edit">Edit</button>
+            <button class="edit-color-btn">Color
+                <div class="colors-container">
+                    <span class="color-option" style="background-color: rgb(255, 255, 255);"> &nbsp; </span>
+                    <span class="color-option" style="background-color: rgb(255, 204, 136);"> &nbsp; </span>
+                    <span class="color-option" style="background-color: rgb(255, 255, 136);"> &nbsp; </span>
+                    <span class="color-option" style="background-color: rgb(204, 255, 153);"> &nbsp; </span>
+                    <span class="color-option" style="background-color: rgb(255, 136, 136);"> &nbsp; </span>
+                    <span class="color-option" style="background-color: rgb(170, 255, 238);"> &nbsp; </span>
+                    <span class="color-option" style="background-color: rgb(136, 221, 255);"> &nbsp; </span>
+                    <span class="color-option" style="background-color: rgb(136, 187, 255);"> &nbsp; </span>
+                    <span class="color-option" style="background-color: rgb(221, 187, 255);"> &nbsp; </span>
+                    <span class="color-option" style="background-color: rgb(221, 221, 221);"> &nbsp; </span>
+                </div>
+            </button>
         </div>
         <note-edit @closeEdit="isEditting=false" v-if="isEditting" :note="note" />
     </section>
@@ -25,7 +39,6 @@ export default {
     methods: {
         remove() {
             this.$emit('remove', this.note.id);
-            console.log('deleting');
         },
         edit() {
             this.isEditting = true;

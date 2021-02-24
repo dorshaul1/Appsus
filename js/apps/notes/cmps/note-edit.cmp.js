@@ -27,11 +27,11 @@ export default {
         },
         update() {
             eventBus.$emit('update', this.noteTxt, this.note);
+            this.closeEdit();
         },
         closeEdit() {
             this.$emit('closeEdit');
         }
-
     },
     computed: {
        

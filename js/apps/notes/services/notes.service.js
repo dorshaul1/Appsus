@@ -7,8 +7,40 @@ export const noteService = {
     query,
     getInputTypes,
     saveNote,
-    removeNote
+    removeNote,
+    updateNote
 }
+
+function updateNote(newTxt, note) {
+    return setnewNoteTxt(newTxt, note)
+        .then(note => {
+            return storageService.put(NOTES_KEY, note)
+        });
+}
+
+
+
+function setnewNoteTxt(newTxt, note) {
+    switch (note.type) {
+        case 'NoteTxt':
+            note.info.txt = newTxt;
+            break;
+        case 'NoteImg': 
+            note.info.url = newTxt;
+            break;
+        case 'NoteVideo':
+            note.info.url = newTxt;
+            break;
+        case 'NoteTodos':
+            note.info.todos = newTxt.split(',').map(todo => {
+                return { txt: todo, doneAt: null };
+            });
+            break;
+        }
+    return Promise.resolve(note);
+}
+
+
 
 function saveNote(note) {
     let newNote = {
@@ -39,7 +71,7 @@ function saveNote(note) {
     return storageService.post(NOTES_KEY, newNote);
 }
 
-function removeNote(noteId) {
+function removeNote(noteId) { 
     return storageService.remove(NOTES_KEY, noteId);
 }
 

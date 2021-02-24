@@ -10,3 +10,35 @@
     margin-bottom: 10px;
 }
 
+
+.edit-colo-btn {
+    position: relative;
+}
+
+.colors-container {
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 275px;
+    height: 30px;
+    
+}
+
+
+.color-option {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+
+.color-option:hover {
+    border: 1px solid black;
+    background-color: aqua;
+    cursor: pointer;
+}
+
+
+.edit-color-btn:hover .colors-container {
+    display: flex;
+}

@@ -3,6 +3,7 @@ import { noteService } from '../services/notes.service.js'
 import NotePreview from './note-preview.cmp.js'
 import AddNote from './notes-add.cmp.js'
 import { eventBus } from '../../../services/event-bus-service.js'
+import { storageService } from '../../../services/async-storage-service.js'
 
 
 export default {
@@ -23,8 +24,7 @@ export default {
         getNotes() {
             noteService.query()
                 .then(notes => {
-                    this.notes = notes
-                    // console.log(this.notes);
+                    this.notes = notes;
                 });
         },
         addNote(newNote) {
@@ -32,16 +32,13 @@ export default {
                 .then(this.getNotes)
         },
         removeNote(noteId) {
-            // console.log(noteId);
             noteService.removeNote(noteId)
                 .then(this.getNotes);
         },
         updateNote(newTxt, note) {
-            console.log('note:', note)
-            console.log('newTxt:', newTxt)
-            console.log('got to update');
+            noteService.updateNote(newTxt, note)
+                .then(this.getNotes)
         }
-
     },
     created() {
         this.getNotes()
