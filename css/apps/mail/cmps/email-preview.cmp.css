@@ -42,14 +42,12 @@
 .read{
     background-color: white;
 }
-/* 
-.pass-down-preview{
-    background-color: white;
-    height: 80px;
-    width: 100%;
-    position: absolute;
-    bottom: -80px;
-    left: 80px;
-    z-index: 1;
 
-} */
+.fav-star{
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.favorite{
+    color: rgb(255, 210, 8);
+}

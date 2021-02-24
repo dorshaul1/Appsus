@@ -1,6 +1,7 @@
 import { mailServices } from '../services/email.service.js'
 import composeBtn from '../cmps/email-compose.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
+import choosenOption from '../cmps/choosen-option.cmp.js'
 
 export default {
     template: `
@@ -8,33 +9,47 @@ export default {
         <div class="mail-main-container flex center">
             <div class="mail-options-container flex column align-items">
                 <compose-btn @compose="compose"/>
+                <choosen-option :chooseName="'inbox'" @click.native="choose('inbox')"/>
+                <choosen-option :chooseName="'favorites'" @click.native="choose('favorites')"/>
             </div>
             <div class="mail-massage-container">
-                <email-list :mails="mails"/>
+                <email-list v-if="choosenOption = 'inbox'" :mails="mails" @deleteMail = "deleteMail"/>
             </div>
-        <!-- <router-link class="buy-books-btn" to="/book">Lets </router-link> -->
         </div>
     </section>
     `,
     data() {
         return {
-            mails: null
+            mails: null,
+            choosenOption: 'inbox'
         }
     },
     components: {
         composeBtn,
-        emailList
+        emailList,
+        choosenOption
     },
     methods: {
         compose() {
-            console.log('hi');
         },
+
+        loadMails() {
+            return mailServices.query()
+                .then(mails => {
+                    this.mails = mails
+                })
+        },
+        deleteMail(mail) {
+            mailServices.deleteMail(mail)
+                .then((mails) => this.mails = mails)
+        },
+        choose(name){
+            console.log('name:', name)
+
+        }
 
     },
     created() {
-        mailServices.query()
-        .then(mails=> {
-            this.mails = mails
-        })
+        this.loadMails()
     },
 }

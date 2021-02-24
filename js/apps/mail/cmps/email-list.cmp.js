@@ -6,31 +6,30 @@ export default {
     props: ['mails'],
     template: `
     <ul class="mail-list flex column">
-        <li v-if="mails" v-for="mail in mails"><email-preview :mail="mail" @select="select"/>
-        <pass-down-preview v-if="mail.isClicked" :mail="mail" @fullScreen="moveToDetails"/></li>
+        <li v-if="mails" v-for="mail in mails"><email-preview :mail="mail" @select="select" @favorite = "favorite(mail)"/>
+        <pass-down-preview v-if="mail.isClicked" :mail="mail" @fullScreen="moveToDetails" @delete="deleteMail"/></li>
 
     </ul>
     `,
-    data() {
-        return {
-            // isClicked: false
-        }
-    },
     components: {
         emailPreview,
         passDownPreview
     },
     methods: {
         select(mail) {
-            // console.log('mail:', mail)
             mail.isClicked = !mail.isClicked
-            // console.log(' this.isClicked:',  this.isClicked)
             mail.isRead = true
             mailServices.updateMail(mail)
         },
         moveToDetails(mail){
-                console.log('mail:', mail)
                 this.$router.push(`/mail/details/${mail.id}`)
+        },
+        deleteMail(mail){
+                this.$emit('deleteMail', mail)
+        },
+        favorite(mail){
+            mail.isFavorite = !mail.isFavorite
+            // console.log('mail.isFavorite:', mail.isFavorite)
         }
     }
 }
