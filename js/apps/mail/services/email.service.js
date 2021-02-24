@@ -72,6 +72,9 @@ function getMailById(mailId) {
         })
 }
 
+getMailById('LSV8I')
+.then(mail => console.log(mail))
+
 function _saveMailsToStorage() {
     utilService.saveToStorage(MAIL_KEY, gMails)
 }

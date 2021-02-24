@@ -6,7 +6,6 @@ import NotePreview from './note-preview.cmp.js'
 export default {
     template: `
     <section v-if="notes" class="notes-list flex column align-items">
-        <!-- <h1 class="notes-add-title">add note</h1> -->
         <div class="notes-container common-width">
                <note-preview v-for="(note, idx) in notes" :note="note" :key="idx" />
         </div>
@@ -19,7 +18,7 @@ export default {
     },
     methods: {
         getNotes() {
-            noteService.getNotes()
+            noteService.query()
                 .then(notes => {
                     this.notes = notes
                     console.log(this.notes);

@@ -1,18 +1,28 @@
 
-import { storageService } from '../../../services/async-storage-service.js'
+import { storageService } from '../../../services/async-storage-service.js';
 
-
+const NOTES_KEY = 'notes';
 
 export const noteService = {
-    getNotes
-}
-
-function getNotes() {
-    return Promise.resolve(notes)
+    query,
+    getInputTypes
 }
 
 
-const notes = [
+function query() {
+    return storageService.query(NOTES_KEY)
+        .then(notes => {
+            if (!notes.length) return storageService.postMany(NOTES_KEY, notesDB);
+            else return notes;
+        });
+}
+
+
+function getInputTypes() {
+    return Promise.resolve(inputTypes);
+}
+
+const notesDB = [
     {
         type: "NoteTxt",
         isPinned: true,
@@ -115,3 +125,15 @@ const notes = [
         }
     }
 ]
+
+const inputTypes = [
+    {type: 'text',
+     placeholder: 'What’s on your mind...' },
+    {type: 'url',
+     placeholder: 'Enter image URL...' },
+    {type: 'url',
+     placeholder: 'Enter video URL...' },
+    {type: 'text',
+     placeholder: 'Enter comma separated list...' } 
+]
+
