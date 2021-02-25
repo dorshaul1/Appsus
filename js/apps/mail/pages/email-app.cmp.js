@@ -94,7 +94,7 @@ export default {
             this.isAddingMail = false
             // mailServices.updateSentedMail(mail)
             this.loadSenTedMails()
-                .then (mails => this.sentedMails = mails)
+                .then(mails => this.sentedMails = mails)
         }
 
     },
@@ -104,4 +104,9 @@ export default {
         this.loadSenTedMails()
         this.filteredMails()
     },
+//     watch: {
+//         sentedMails{
+//     console.log('sentedMails:', sentedMails)
+// }
+//     }
 }
