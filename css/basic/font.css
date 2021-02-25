@@ -1,12 +1,11 @@
 /* FONTS */
 
-/* 
 @font-face {
-    font-family: logo-font;
-    src: url(../fonts/logo-font/MoongladeDemoBold-jOzM.ttf);
+    font-family: poppins;
+    src: url(../../fonts/poppins/Poppins-Regular.ttf);
 }
 
 @font-face {
-    font-family: poppins;
-    src: url(../fonts/poppins/Poppins-Regular.ttf);
-} */
+    font-family: azonix;
+    src: url(../../fonts/azonix/Azonix-1VB0.otf);
+} 

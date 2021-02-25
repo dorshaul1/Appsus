@@ -16,7 +16,7 @@ export default {
         setFilter(path) {
             if (path === '/notes') this.currFilter = 'NoteFilter';
             if (path === '/mail') this.currFilter = 'MailFilter';
-            // console.log(this.currFilter);
+            if (path === '/') this.currFilter = null;
         }
     },
     components: {
@@ -24,7 +24,6 @@ export default {
         MailFilter
     },
     created() {
-        // console.log('created');
         this.setFilter(this.$route.fullPath)
 
     },

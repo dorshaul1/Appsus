@@ -1,0 +1,33 @@
+.home-page {
+    height: 90vh;
+    background-color: #E4E7EB;
+}
+
+.homepage-logo {
+    width: 80%;
+    color: #323f4b;
+}
+
+
+.homepage-welcome {
+    margin-top: 50px;
+    font-size: 2rem;
+    font-family: azonix, sans-serif;
+    
+}
+
+.homepage-title {
+    font-size: 3rem;
+    font-family: azonix, sans-serif;
+}
+
+.homepage-logo-container {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    margin-top: 175px;
+    width: 350px;
+    height: 350px;
+}

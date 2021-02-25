@@ -1,0 +1,31 @@
+.app-menu {
+    position: absolute;
+    background-color: #9AA5B1;
+    left: -200px;
+    top: 50px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.app-menu > * {
+    font-size: 35px;
+    padding: 15px;
+    color: #e9e9e9;
+}
+
+.app-menu > * :hover {
+    color: white;
+}
+
+.menu-screen {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(90, 90, 90, 0.288);
+}

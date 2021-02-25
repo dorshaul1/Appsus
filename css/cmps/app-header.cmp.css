@@ -1,7 +1,42 @@
 /* HEADER */
 
-.app-header{
-    /* width: 100%; */
-    background-color: rgb(189, 189, 189);
+.app-header {
+    background-color: #52606D;
     height: 10vh;
+    color: #F5F7FA;
+}
+
+.menu-btn {
+    position: relative;
+}
+
+.logo-title {
+    font-size: 1.8rem;
+    font-family: azonix, sans-serif;
+    text-decoration:none;   
+}
+
+.logo-svg {
+    width: 85%;
+}
+
+.burger {
+    font-size: 1.8rem;
+    color: #e9e9e9;
+}
+
+.burger:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.svg-container {
+    background-color: #e9e9e9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline-end: 10px;
+    width: 65px;
+    height: 65px;
 }

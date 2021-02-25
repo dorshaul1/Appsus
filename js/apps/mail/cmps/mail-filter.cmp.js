@@ -11,9 +11,8 @@ export default {
                 <option>From</option>
                 <option>Subject</option>
                 <option>Content</option>
-                <!-- <option>Date</option> -->
             </select>   
-            <button>Search</button>
+            <i class="search-btn fas fa-search"></i>
         </form>
     </section>
     `,

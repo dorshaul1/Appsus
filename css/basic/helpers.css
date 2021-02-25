@@ -1,15 +1,15 @@
 
-/* .red {
-    color: red;
+.error {
+    background-color: red;
 }
 
-.green {
-    color: green;
+.success {
+    background-color: green;
 }
 
 .black {
     color: black;
-} */
+} 
 
 .common-width {
     width: 1400px;

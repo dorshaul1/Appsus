@@ -13,7 +13,8 @@ export default {
         <div v-if="!isEditting" class="note-edit-btns">
             <button @click="remove">Remove</button>
             <button @click="edit">Edit</button>
-            <button @click="pin">pin</button>
+            <!-- <button @click="pin">pin</button> -->
+            <i @click="pin" class="fas fa-thumbtack"></i>
             <button class="edit-color-btn">Color
                 <div class="colors-container">
                     <span class="color-option" @click="setColor('rgb(255, 255, 255)')" style="background-color: rgb(255, 255, 255);"> &nbsp; </span>

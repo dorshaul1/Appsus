@@ -12,7 +12,7 @@ export default {
                 <option value="NoteVideo">Video</option>
                 <option value="NoteTodos">List</option>
             </select>   
-            <button>Search</button>
+            <i class="search-btn fas fa-search"></i>
         </form>
     </section>
     `,

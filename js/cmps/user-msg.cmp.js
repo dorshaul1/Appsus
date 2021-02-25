@@ -24,10 +24,8 @@ export default {
     computed: {
         show() {
             return {
-                 show: this.msg ? true : false,
                  error: this.msg.type === 'error',
                  success: this.msg.type === 'success'
-
             }
         } 
     },
