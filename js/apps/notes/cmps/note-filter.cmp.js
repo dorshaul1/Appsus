@@ -1,9 +1,10 @@
+import { eventBus } from '../../../services/event-bus-service.js'
 
 export default { 
     template: `
     <section class="note-filter">
         <form class="search-bar" @submit.prevent="setFilter">
-            <input @input="setFilter" placeholder="Name" v-model="filterBy.noteName">
+            <input @input="setFilter" placeholder="Name" v-model="filterBy.noteName" />
             <select @change="setFilter" v-model.number="filterBy.noteType">
                 <option value="All">All</option>
                 <option value="NoteTxt">Text</option>
@@ -24,14 +25,12 @@ export default {
         }
     },
     methods: {
-        select(bookId) {
-            this.$emit('selected', bookId);
-        },
         setFilter() {
-            this.$emit('filtered', this.filterBy)
+            // console.log('triggered');
+            const filters = Object.assign({}, this.filterBy);
+            eventBus.$emit('filter', filters);
         }
     },
     created() {
-        console.log('woooohoooo');
     }
 }

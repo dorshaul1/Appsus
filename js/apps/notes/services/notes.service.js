@@ -9,9 +9,14 @@ export const noteService = {
     addNote,
     removeNote,
     updateNote,
-    saveNote
+    saveNote,
+    pinNote
 }
 
+function pinNote(note) {
+    note.isPinned = !note.isPinned;
+    return storageService.put(NOTES_KEY, note)
+}
 function updateNote(newTxt, note) {
     return setnewNoteTxt(newTxt, note)
         .then(note => {
@@ -105,6 +110,7 @@ const notesDB = [
     },
     {   id: storageService.makeId(),
         type: "NoteTodos",
+        isPinned: true,
         info: {
             todos: [
                 { txt: "Do that", doneAt: null },
@@ -117,6 +123,7 @@ const notesDB = [
     },
     {   id: storageService.makeId(),
         type: "NoteImg",
+        isPinned: true,
         info: {
             url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg",
             title: "Me playing Mi"
@@ -137,6 +144,7 @@ const notesDB = [
     },
     {   id: storageService.makeId(),
         type: "NoteImg",
+        isPinned: false,
         info: {
             url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg",
             title: "Me playing Mi"
@@ -147,6 +155,7 @@ const notesDB = [
     },
     {   id: storageService.makeId(),
         type: "NoteTodos",
+        isPinned: false,
         info: {
             todos: [
                 { txt: "Do that", doneAt: null },
@@ -169,6 +178,7 @@ const notesDB = [
     },
     {   id: storageService.makeId(),
         type: "NoteImg",
+        isPinned: false,
         info: {
             url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg",
             title: "Me playing Mi"
@@ -179,6 +189,7 @@ const notesDB = [
     },
     {   id: storageService.makeId(),
         type: "NoteImg",
+        isPinned: false,
         info: {
             url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg",
             title: "Me playing Mi"
@@ -189,6 +200,7 @@ const notesDB = [
     },
     {   id: storageService.makeId(),
         type: "NoteTodos",
+        isPinned: false,
         info: {
             todos: [
                 { txt: "Do that", doneAt: null },
@@ -211,6 +223,7 @@ const notesDB = [
     },
     {   id: storageService.makeId(),
         type: "NoteVideo",
+        isPinned: false,
         info: {
             url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         },
