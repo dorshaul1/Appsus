@@ -1,7 +1,4 @@
 
-
-
-
 .notes-container {
     column-count: 4;
     margin-left: auto;
@@ -11,7 +8,18 @@
     padding-bottom: 100px;
 }
 
+.pinned-container {
+    column-count: 4;
+}
+
 .notes-list {
     height: 100%;
     z-index: 1;
+    margin: 0 auto;
+}
+
+
+.container-title {
+    align-self: flex-start;
+    margin: 10px 0;
 }

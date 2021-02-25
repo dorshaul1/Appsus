@@ -8,11 +8,12 @@ import noteEdit from './note-edit.cmp.js'
 export default {
     props: ['note'],
     template: `
-    <section :style=" { background: getColor } " class="note-preview flex column">
+    <section :class="pinned" :style=" { background: getColor } " class="note-preview flex column">
         <component :is="note.type" :info="note.info" @setVal="setAns($event, idx)"></component>
         <div v-if="!isEditting" class="note-edit-btns">
             <button @click="remove">Remove</button>
             <button @click="edit">Edit</button>
+            <button @click="pin">pin</button>
             <button class="edit-color-btn">Color
                 <div class="colors-container">
                     <span class="color-option" @click="setColor('rgb(255, 255, 255)')" style="background-color: rgb(255, 255, 255);"> &nbsp; </span>
@@ -45,21 +46,22 @@ export default {
             this.isEditting = true;
         },
         setColor(color) {
-            this.chosenColor = color;
             this.note.style.backgroundColor = color;
             this.$emit('saveNote', this.note);
         },
-        checkBgc() {
-            if (this.note.style.backgroundColor) this.chosenColor = this.note.style.backgroundColor;
+        pin() {
+            this.$emit('pin', this.note);
         }
     },
     computed: {
         getColor() {
-            return this.chosenColor;
+            return this.note.style.backgroundColor;
+        },
+        pinned() {
+            return { pinned: this.note.isPinned}
         }
     },
     created() {
-        this.checkBgc();
     },
     components: {
         NoteTxt,
