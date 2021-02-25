@@ -5,11 +5,13 @@
     height: 100%;
     width: 100%;
     background-color: #cbd2d9;
+    padding-top: 15px;
+
 }
 
 .mail-compose-container {
     background-color: #f5f7fa;
-    height: 90%;
+    height: 70%;
     width: 90%;
 }
 
@@ -59,4 +61,5 @@
     cursor: pointer;
     position: relative;
     top: -55px;
+    left: 920px;
 }

@@ -8,18 +8,18 @@ import { eventBus } from '../../../services/event-bus-service.js'
 
 export default {
     template: `
-    <section class="mail-compose flex center align-items">
+    <section class="mail-compose flex center">
         <div class="mail-compose-container">
         <div class="compose-header flex align-items">New Message</div>
             <form class="flex column">
                 <input v-model="mailToSend.mailAdress" class="compose-to" type="text" placeholder="To:"/>
                 <input v-model="mailToSend.from" class="compose-cc" type="text" placeholder="From:"/>
                 <input v-model="mailToSend.subject" class="compose-subject" type="text" placeholder="Subject:"/>
-                <textarea v-model="mailToSend.content" class="compose-content" type="text" cols="30" rows="18" placeholder="Content:"></textarea>
+                <textarea v-model="mailToSend.content" class="compose-content" type="text" cols="30" rows="17" placeholder="Content:"></textarea>
             </form>
-            <div class="compose-options-constainer flex">
+            <!-- <div class="compose-options-constainer flex"> -->
                 <a @click.prevent="send" class="send-mail-btn"><i class="fas fa-share"></i></a>
-            </div>
+            <!-- </div> -->
         </div>
     </section>
     `,
