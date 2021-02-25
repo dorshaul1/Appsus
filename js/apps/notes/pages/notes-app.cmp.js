@@ -16,5 +16,7 @@ export default {
     },
     components: {
         notesList
+    },
+    created() {
     }
 }

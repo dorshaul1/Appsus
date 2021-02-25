@@ -8,12 +8,9 @@
     padding: 10px;
     background-color: azure;
     margin-bottom: 10px;
+    /* position: relative; */
 }
 
-
-.edit-colo-btn {
-    position: relative;
-}
 
 .colors-container {
     position: absolute;
@@ -21,8 +18,10 @@
     align-items: center;
     justify-content: space-between;
     width: 275px;
-    height: 30px;
-    
+    height: 40px;
+    /* left: 50px; */
+    bottom: -30px;
+    z-index: 1;
 }
 
 
@@ -31,6 +30,7 @@
     width: 25px;
     height: 25px;
     transition: transform .3s;
+    z-index: 1;
 }
 
 .color-option:hover {
@@ -43,4 +43,8 @@
 
 .edit-color-btn:hover .colors-container {
     display: flex;
+}
+
+.note-edit-btns {
+    position: relative;
 }

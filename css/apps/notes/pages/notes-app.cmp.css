@@ -1,4 +1,4 @@
 .notes-app { 
     background-color: rgb(209, 255, 247);
-    height: 90vh;
+    min-height: 90vh;
 }

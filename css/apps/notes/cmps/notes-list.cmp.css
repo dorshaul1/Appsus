@@ -7,4 +7,11 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    height: 100%;
+    padding-bottom: 100px;
+}
+
+.notes-list {
+    height: 100%;
+    z-index: 1;
 }
