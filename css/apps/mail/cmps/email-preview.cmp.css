@@ -15,7 +15,7 @@
 }
 
 .mail-prev-from{
-    font-size: 30px;
+    font-size: 1.2rem;
     flex-basis: 20%;
 }
 
@@ -25,18 +25,18 @@
 }
 
 .mail-prev-date{
-    font-size: 15px;
-    
+    font-size: 0.9rem;
     flex-basis: 10%;
 }
 
 .mail-prev-subject{
-    font-size: 20px;
+    font-size: 0.9rem;
     margin-right: 10px;
 }
 
 .mail-prev-body{
-    color: rgb(179, 179, 179);
+    font-size: 0.8rem;
+    color: rgb(146, 145, 145);
 }
 
 .read{

@@ -4,7 +4,7 @@
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgb(221, 220, 220);
+    background-color: #cbd2d9;
 }
 
 .mail-compose-container {
@@ -53,13 +53,10 @@
 }
 
 .send-mail-btn {
-    /* justify-self: flex-end; */
-    color: rgb(76, 187, 76);
-    font-size: 20px;
-    height: 40px;
-    width: 130px;
+    font-size: 1.6rem;
     background-color: transparent;
-    border: 2px solid rgb(76, 187, 76);
     border-radius: 30px;
     cursor: pointer;
+    position: relative;
+    top: -55px;
 }

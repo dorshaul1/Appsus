@@ -6,8 +6,8 @@ export default {
             <div class="pass-down-prev-header-content flex space-between align-items">
                 {{mail.subject}}
                 <div class="pass-down-prev-options flex">
-                    <button class="delete-mail-btn flex align-items center"><img src="../../../../imgs/icons/delete.svg" @click="deleteMail(mail)"></button>
-                    <button class="full-screen-btn flex align-items center"><img src="../../../../imgs/icons/switch-to-full-screen-button.svg" @click="fullScreen(mail)"></button>
+                    <a class="delete-mail-btn flex align-items center"><i class="fas fa-trash" @click="deleteMail(mail)"></i></a>
+                    <a class="full-screen-btn flex align-items center"><i class="fas fa-expand" @click="fullScreen(mail)"></i></a>
                 </div>
             </div>
             <div class="from-pass-down-prev-content flex space-between align-items">

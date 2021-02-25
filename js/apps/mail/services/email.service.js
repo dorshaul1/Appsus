@@ -7,19 +7,15 @@ export const mailServices = {
     query,
     getMailById,
     updateMail,
-    // updateSentedMail,
     deleteMail,
-    // updateMails,
     filterByFavorites,
     searchMail,
-    querySented,
-    addSentedMail
+    filterBySented
 }
 
 const MAIL_KEY = 'mailsDB'
 const SENT_MAIL_KEY = 'sentMails'
 
-const gSentMails = []
 const gMails = [
     {
         isClicked: false,
@@ -84,21 +80,10 @@ function createMail(mail) {
         content: mail.content,
         isRead: false,
         sentAt: Date.now(),
-        isFavorite: false
+        isFavorite: false,
+        isSented: true
     }
     storageService.post(MAIL_KEY, newMail)
-    gSentMails.push(newMail)
-    querySented()
-}
-
-function querySented() {
-    return storageService.query(SENT_MAIL_KEY)
-        .then((mails) => {
-            if (!mails.length) {
-                utilService.saveToStorage(SENT_MAIL_KEY, gSentMails)
-            }
-            return mails
-        });
 }
 
 function query() {
@@ -129,6 +114,11 @@ function filterByFavorites() {
         .then(mails => mails.filter(mail => mail.isFavorite))
 }
 
+function filterBySented() {
+    return query()
+        .then(mails => mails.filter(mail => mail.isSented))
+}
+
 function searchMail(searchStr, searchBy) {
     const searchType = searchBy.toLowerCase()
     if (!searchType) return
@@ -138,7 +128,6 @@ function searchMail(searchStr, searchBy) {
                 return mails.filter(mail => {
                     Object.values(mail).some(val => {
                         String(val).toLowerCase().includes(searchStr)
-                        // console.log('typeof val:', typeof val)
                     })
                 })
             })
@@ -147,8 +136,4 @@ function searchMail(searchStr, searchBy) {
         .then(mails => mails.filter(mail => {
             return mail[searchType].toLowerCase().includes(searchStr)
         }))
-}
-
-function addSentedMail(mail){
-    storageService.post(SENT_MAIL_KEY, mail)
 }

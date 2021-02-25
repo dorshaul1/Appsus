@@ -14,13 +14,13 @@
 
 .mail-massage-container {
     flex-basis: 80%;
-    background-color: rgb(223, 222, 222);
+    background-color: #cbd2d9;
     overflow: auto;
     position: relative;
 }
 
 .mail-options-container {
     flex-basis: 20%;
-    background-color: rgb(212, 209, 209);
+    background-color: #9aa5b1;
     padding: 20px 0;
 }

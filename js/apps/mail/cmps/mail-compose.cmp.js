@@ -18,7 +18,7 @@ export default {
                 <textarea v-model="mailToSend.content" class="compose-content" type="text" cols="30" rows="18" placeholder="Content:"></textarea>
             </form>
             <div class="compose-options-constainer flex">
-                <button @click.prevent="send" class="send-mail-btn">Send</button>
+                <a @click.prevent="send" class="send-mail-btn"><i class="fas fa-share"></i></a>
             </div>
         </div>
     </section>

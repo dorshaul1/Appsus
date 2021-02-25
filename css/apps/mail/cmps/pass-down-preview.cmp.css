@@ -29,18 +29,11 @@
 
 } */
 
-.pass-down-prev-options button{
-    width: 35px;
-    height: 35px;
-    margin-left: 10px;
+.pass-down-prev-options a{
+    font-size: 1.6rem;
+    margin-left: 15px;
     border: none;
-    border-radius: 50%;
     cursor: pointer;
-}
-
-.pass-down-prev-options button img{
-    width: 20px;
-
 }
 
 .pass-down-prev-body-content{

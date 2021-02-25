@@ -12,8 +12,8 @@ export default {
                 </div>
                 <div class="main-body-content flex center"><pre>{{mail.content}}</pre></div>
                 <div class="mail-details-options flex space-between">
-                    <button class="delete-mail-btn flex align-items center"><img src="../../../../imgs/icons/delete.svg" @click="deleteMail(mail)"></button>
-                    <button class="prev-page-btn flex align-items center"><img src="../../../../imgs/icons/curve-arrow-pointing-left.svg" @click="prevPage"></button>
+                    <a class="prev-page-btn flex align-items center"><i class="fas fa-arrow-circle-left" @click="prevPage"></i></a>
+                    <a class="delete-mail-btn flex align-items center"><i class="fas fa-trash" @click="deleteMail(mail)"></i></a>
 
                 </div>
 

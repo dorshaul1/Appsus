@@ -49,13 +49,6 @@ export default {
                 })
         },
 
-        loadSenTedMails() {
-            return mailServices.querySented()
-                .then(mails => {
-                    this.sentedMails = mails
-                })
-        },
-
         deleteMail(mail) {
             mailServices.deleteMail(mail)
                 .then((mails) => this.mails = mails)
@@ -77,36 +70,23 @@ export default {
         },
         sentMails() {
             this.choosenOption = 'sentMails'
-            mailServices.querySented()
+            mailServices.filterBySented()
                 .then(mails => this.mails = mails)
             this.isAddingMail = false
         },
         filteredMails() {
             eventBus.$on('filtered', (filteredMails) => {
-                // if (!filteredMails) this.mails = 'No Results'
                 this.mails = filteredMails
             })
         },
         sendMail(mail) {
-            // console.log('mail:', mail)
             mailServices.createMail(mail)
-            mailServices.addSentedMail(mail)
             this.isAddingMail = false
-            // mailServices.updateSentedMail(mail)
-            this.loadSenTedMails()
-                .then(mails => this.sentedMails = mails)
         }
 
     },
     created() {
-        // console.log(this.mail);
         this.loadMails()
-        this.loadSenTedMails()
         this.filteredMails()
     },
-//     watch: {
-//         sentedMails{
-//     console.log('sentedMails:', sentedMails)
-// }
-//     }
 }

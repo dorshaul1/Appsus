@@ -31,7 +31,6 @@ export default {
         favorite(mail){
             mail.isFavorite = !mail.isFavorite
             mailServices.updateMail(mail)
-            // console.log('mail.isFavorite:', mail.isFavorite)
-        }
+s        }
     }
 }
