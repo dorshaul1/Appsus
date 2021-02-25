@@ -11,12 +11,9 @@ export default {
     <section :class="pinned" :style=" { background: getColor } " class="note-preview flex column">
         <component :is="note.type" :info="note.info" @setVal="setAns($event, idx)"></component>
         <div v-if="!isEditting" class="note-edit-btns">
-            <button @click="remove">Remove</button>
-            <button @click="edit">Edit</button>
-            <!-- <button @click="pin">pin</button> -->
-            <i @click="pin" class="pin-btn fas fa-thumbtack"></i>
-            <button class="edit-color-btn">Color
-                <div class="colors-container">
+            
+            <i class="edit-color-btn fas fa-palette">
+            <div class="colors-container">
                     <span class="color-option" @click="setColor('rgb(255, 255, 255)')" style="background-color: rgb(255, 255, 255);"> &nbsp; </span>
                     <span class="color-option" @click="setColor('rgb(255, 204, 136)')" style="background-color: rgb(255, 204, 136);"> &nbsp; </span>
                     <span class="color-option" @click="setColor('rgb(204, 255, 153)')" style="background-color: rgb(204, 255, 153);"> &nbsp; </span>
@@ -28,7 +25,12 @@ export default {
                     <span class="color-option" @click="setColor('rgb(221, 187, 255)')" style="background-color: rgb(221, 187, 255);"> &nbsp; </span>
                     <span class="color-option" @click="setColor('rgb(221, 221, 221)')" style="background-color: rgb(221, 221, 221);"> &nbsp; </span>
                 </div>
-            </button>
+            </i>
+
+                <i @click="pin" class="pin-btn fas fa-thumbtack"></i>
+                <i @click="edit" class="edit-btn fas fa-edit"></i>
+                <i @click="remove" class="remove-btn fas fa-trash"></i>
+        
         </div>
         <note-edit @closeEdit="isEditting=false" v-if="isEditting" :note="note" />
     </section>

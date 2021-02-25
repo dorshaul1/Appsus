@@ -1,0 +1,11 @@
+.note-edit {
+    align-self: center;
+}
+
+.edit-form > * {
+    margin-top: 10px;
+}
+.edit-btns {
+    display: flex;
+    justify-content: space-between;
+}

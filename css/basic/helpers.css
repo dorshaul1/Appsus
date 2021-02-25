@@ -48,3 +48,7 @@
     align-self: center;
     justify-self: center;
 }
+
+.align-self-start {
+    align-self: flex-start;
+}

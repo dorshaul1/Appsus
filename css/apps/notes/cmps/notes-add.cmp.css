@@ -1,3 +1,26 @@
 .notes-add {
-    margin: 10px 0;
+    margin: 10px auto;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-btn-container > * {
+    padding-left: 10px;
+    font-size: 1.8rem;
+    color: rgb(161, 161, 161);
+}
+
+.add-btn-container > *:hover {
+    cursor: pointer;
+    color: rgb(94, 94, 94);
+}
+
+.add-input {
+    padding-right: 5px;
+    width: 300px;
+    font-size: 1rem;
+    height: 34px;
+    outline: none;
 }

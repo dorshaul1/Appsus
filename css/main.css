@@ -25,6 +25,8 @@
 @import url("./apps/notes/cmps/notes-list.cmp.css"); 
 @import url("./apps/notes/cmps/note-preview.cmp.css"); 
 @import url("./apps/notes/cmps/notes-add.cmp.css"); 
+@import url("./apps/notes/cmps/note-todos.cmp.css"); 
+@import url("./apps/notes/cmps/note-edit.cmp.css"); 
 
 /* HEADER */
 @import url("./cmps/app-header.cmp.css"); 

@@ -1,8 +1,9 @@
 .app-filter {
     width: 500px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    align-self: center;
+    margin: 0 auto;
 } 
 
 .app-filter input {
@@ -21,3 +22,6 @@
     cursor: pointer;
 }
 
+.search-btn {
+    padding-left: 5px;
+}

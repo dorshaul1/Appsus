@@ -4,7 +4,7 @@ export default {
     props: ['note'],
     template: `
     <section v-if="note" class="note-edit">
-        <form @submit.prevent="update">
+        <form class="edit-form" @submit.prevent="update">
             <input v-model="noteTxt">
             <div class="edit-btns">
                 <button @click="update">Update</button>

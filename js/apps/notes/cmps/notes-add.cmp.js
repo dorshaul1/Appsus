@@ -5,16 +5,13 @@ export default {
     template: `
     <section v-if="currInput" class="notes-add flex">
         <form @submit.prevent="saveNote">
-            <input  autocomplete="off" v-model="emptyNote.txt" :placeholder="currInput.placeholder" :type="currInput.type" />
+            <input class="add-input"  autocomplete="off" v-model="emptyNote.txt" :placeholder="currInput.placeholder" :type="currInput.type" />
         </form>
-            <div>
-                <a @click="setInput(0)">text</a>
-                <a @click="setInput(1)">photo</a>
-                <a @click="setInput(2)">video</a>
-            <a @click="setInput(3)">todo</a>
-            <!-- <pre>
-                {{emptyNote}}
-            </pre> -->
+            <div class="add-btn-container">
+                <i @click="setInput(0)" class="fas fa-font"></i>
+                <i @click="setInput(1)" class="fas fa-image"></i>
+                <i @click="setInput(2)" class="fas fa-video"></i>
+                <i @click="setInput(3)" class="fas fa-list-ul"></i>
         </div>
     </section>
     `,
@@ -32,10 +29,10 @@ export default {
     methods: {
         getInputTypes() {
             noteService.getInputTypes()
-            .then(inputTypes => {
-                this.inputTypes = inputTypes;
-                this.setInput();
-            });
+                .then(inputTypes => {
+                    this.inputTypes = inputTypes;
+                    this.setInput();
+                });
         },
         setInput(inputIdx = 0) {
             this.currInputIdx = inputIdx;
@@ -57,7 +54,7 @@ export default {
     computed: {
     },
     created() {
-        this.getInputTypes()    
+        this.getInputTypes()
     },
 
 }

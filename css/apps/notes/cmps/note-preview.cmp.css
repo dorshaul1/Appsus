@@ -1,13 +1,17 @@
 .note-preview {
     break-inside: avoid;
-    border: 1px outset gray;
     border-radius: 5px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     padding: 10px;
     background-color: azure;
     margin-bottom: 10px;
+    position: relative;
+}
+
+.note-preview:hover .note-edit-btns {
+    opacity: 1;
 }
 
 
@@ -18,7 +22,8 @@
     justify-content: space-between;
     width: 275px;
     height: 40px;
-    bottom: -30px;
+    bottom: -35px;
+    left: -160px;
     z-index: 1;
 }
 
@@ -29,12 +34,10 @@
     height: 25px;
     transition: transform .3s;
     z-index: 1;
-    /* position: absolute; */
+    border: 0.1px solid gray;
 }
 
 .color-option:hover {
-    border: 0.1px outset black;
-    background-color: aqua;
     cursor: pointer;
     transform: scale(1.2);
 }
@@ -46,12 +49,28 @@
 
 .note-edit-btns {
     position: relative;
+    opacity: 0;
+    align-self: flex-end;
+}
+
+.note-edit-btns > * {
+    padding: 5px;
+    color: rgb(172, 172, 172);
+    font-size: 1.4rem;
+}
+
+.note-edit-btns > *:hover {
+    color: rgb(110, 110, 110);
+    cursor: pointer;
 }
 
 .pinned {
-    border: 2px outset black;
+    border: 1px outset gray;
 }
 
-.pin-btn {
-    color: gray:
+.cat-icon {
+    color: rgb(110, 110, 110);
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
 }
