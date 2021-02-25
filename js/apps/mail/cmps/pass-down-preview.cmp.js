@@ -13,7 +13,7 @@ export default {
             <div class="from-pass-down-prev-content flex space-between align-items">
                     <div class="pass-down-prev-from flex"><h1>{{mail.from}}</h1><p>< {{mail.mailAdress}} ></p></div>
             </div>
-            <div class="pass-down-prev-body-content flex center"><pre>{{mail.body}}</pre></div>
+            <div class="pass-down-prev-body-content flex center"><pre>{{mail.content}}</pre></div>
         </section>
     `,
         methods: {
