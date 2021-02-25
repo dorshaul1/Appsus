@@ -7,7 +7,8 @@ export default {
     template: `
     <ul class="mail-list flex column">
         <li v-if="mails" v-for="mail in mails"><email-preview :mail="mail" @select="select" @favorite = "favorite(mail)"/>
-        <pass-down-preview v-if="mail.isClicked" :mail="mail" @fullScreen="moveToDetails" @delete="deleteMail"/></li>
+            <pass-down-preview v-if="mail.isClicked" :mail="mail" @fullScreen="moveToDetails" @delete="deleteMail"/>
+        </li>
 
     </ul>
     `,

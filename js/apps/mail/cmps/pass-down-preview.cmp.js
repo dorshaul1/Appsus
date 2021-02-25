@@ -8,7 +8,6 @@ export default {
                 <div class="pass-down-prev-options flex">
                     <button class="delete-mail-btn flex align-items center"><img src="../../../../imgs/icons/delete.svg" @click="deleteMail(mail)"></button>
                     <button class="full-screen-btn flex align-items center"><img src="../../../../imgs/icons/switch-to-full-screen-button.svg" @click="fullScreen(mail)"></button>
-
                 </div>
             </div>
             <div class="from-pass-down-prev-content flex space-between align-items">

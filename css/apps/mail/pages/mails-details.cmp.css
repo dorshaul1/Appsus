@@ -23,16 +23,19 @@
     width: 90%;
     border-radius: 7px;
     padding: 10px;
+    position: relative;
 }
 
 .header-content{
     font-size: 40px;
     margin-bottom: 30px;
+    border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 .from-details-content{
     width: 100%;
     margin-bottom: 30px;
+    border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 .from-details-content h1{
@@ -45,4 +48,30 @@
 
 .main-body-content{
 
+}
+
+.mail-details-options{
+    justify-self: flex-end;
+    position: absolute;
+    bottom: 0;
+    /* right: 20px; */
+    width: 100%;
+    /* justify-content: space-between; */
+    padding: 020px;
+}
+
+.prev-page-btn img{
+    transform: rotateY(180deg);
+}
+
+.mail-details-options button{
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mail-details-options img{
+    width: 35px;
 }
