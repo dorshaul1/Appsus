@@ -7,13 +7,17 @@
 
 .app-filter input {
     outline: none;
+    height: 25px;
+
 }
 
 .app-filter select {
     outline: none;
+    height: 25px;
 }
 
 .search-btn:hover {
     color: white;
     cursor: pointer;
 }
+
