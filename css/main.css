@@ -14,6 +14,7 @@
 @import url("./apps/mail/cmps/email-compose.cmp.css"); 
 @import url("./apps/mail/cmps/email-list.cmp.css"); 
 @import url("./apps/mail/cmps/email-preview.cmp.css"); 
+@import url("./apps/mail/cmps/mail-compose.cmp.css"); 
 @import url("./apps/mail/cmps/pass-down-preview.cmp.css"); 
 @import url("./apps/mail/cmps/choosen-option.cmp.css"); 
 

@@ -1,15 +1,17 @@
+import { mailServices } from '../services/email.service.js'
+import { eventBus } from '../../../services/event-bus-service.js'
 
-export default { 
+export default {
     template: `
     <section class="mail-filter">
-        <form class="search-bar" @submit.prevent="setFilter">
-            <input @input="setFilter" placeholder="Mail" v-model="filterBy.mailName">
-            <select @change="setFilter" v-model.number="filterBy.mailType">
-                <option value="All">All</option>
-                <option value="mailTxt">Text</option>
-                <option value="mailImg">Image</option>
-                <option value="mailVideo">Video</option>
-                <option value="mailTodos">List</option>
+        <form class="search-bar" @input.prevent="setFilter">
+            <input placeholder="Search mail" v-model="searchStr">
+            <select v-model ="selected" >
+                <option>All</option>
+                <option>From</option>
+                <option>Subject</option>
+                <option>Content</option>
+                <!-- <option>Date</option> -->
             </select>   
             <button>Search</button>
         </form>
@@ -17,18 +19,22 @@ export default {
     `,
     data() {
         return {
-            filterBy: {
-                mailName: '',
-                mailType: 'All'
-            }
+            selected: '',
+            searchStr: '',
         }
+
     },
     methods: {
         setFilter() {
-            this.$emit('filtered', this.filterBy)
+            if (!this.selected) return
+            if (this.searchStr === '') {
+                mailServices.query()
+                    .then(mails => eventBus.$emit('filtered', mails))
+            }
+            else mailServices.searchMail(this.searchStr, this.selected)
+                .then(mails => {
+                    eventBus.$emit('filtered', mails)
+                })
         }
-    },
-    created() {
-        console.log('dorrrrrrrr');
     }
 }

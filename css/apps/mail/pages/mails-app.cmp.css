@@ -16,6 +16,7 @@
     flex-basis: 80%;
     background-color: rgb(223, 222, 222);
     overflow: auto;
+    position: relative;
 }
 
 .mail-options-container {

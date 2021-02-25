@@ -7,13 +7,19 @@ export const mailServices = {
     query,
     getMailById,
     updateMail,
+    // updateSentedMail,
     deleteMail,
     // updateMails,
-    filterByFavorites
+    filterByFavorites,
+    searchMail,
+    querySented,
+    addSentedMail
 }
 
 const MAIL_KEY = 'mailsDB'
+const SENT_MAIL_KEY = 'sentMails'
 
+const gSentMails = []
 const gMails = [
     {
         isClicked: false,
@@ -21,7 +27,7 @@ const gMails = [
         id: utilService.makeId(),
         from: 'Puki',
         subject: 'Wassap?',
-        body: 'Pick up!',
+        content: 'Pick up!',
         isRead: false,
         sentAt: Date.now(),
         isFavorite: false
@@ -32,7 +38,7 @@ const gMails = [
         id: utilService.makeId(),
         from: 'Muki',
         subject: 'Wassap Man?',
-        body: `yo yo!
+        content: `yo yo!
             wdeefewjnwkefnjekvnewv
             sacsjckjknwevewv
             sjkhvewuihwvuiewv4
@@ -50,7 +56,7 @@ const gMails = [
         id: utilService.makeId(),
         from: 'Dor',
         subject: 'hi?',
-        body: 'how are you?',
+        content: 'how are you?',
         isRead: false,
         sentAt: Date.now(),
         isFavorite: false
@@ -61,21 +67,38 @@ const gMails = [
         id: utilService.makeId(),
         from: 'Yonatan',
         subject: 'how are you?',
-        body: 'hi!',
+        content: 'hi!',
         isRead: false,
         sentAt: Date.now(),
         isFavorite: false
     }]
 
-function createMail() {
-    const mail =
+function createMail(mail) {
+    const newMail =
     {
-        subject,
-        body,
+        isClicked: false,
+        mailAdress: mail.mailAdress,
+        id: utilService.makeId(),
+        from: mail.from,
+        subject: mail.subject,
+        content: mail.content,
         isRead: false,
-        sentAt: Date.now()
+        sentAt: Date.now(),
+        isFavorite: false
     }
-    storageService.put(MAIL_KEY, mail)
+    storageService.post(MAIL_KEY, newMail)
+    gSentMails.push(newMail)
+    querySented()
+}
+
+function querySented() {
+    return storageService.query(SENT_MAIL_KEY)
+        .then((mails) => {
+            if (!mails.length) {
+                utilService.saveToStorage(SENT_MAIL_KEY, gSentMails)
+            }
+            return mails
+        });
 }
 
 function query() {
@@ -101,12 +124,31 @@ function deleteMail(mail) {
         .then(() => query())
 }
 
-// function updateMails() {
-//     return query()
-// }
-
-function filterByFavorites(){
+function filterByFavorites() {
     return query()
-        .then(mails => mails.filter(mail=>mail.isFavorite))
-        // .then (data=>console.log(data))
+        .then(mails => mails.filter(mail => mail.isFavorite))
+}
+
+function searchMail(searchStr, searchBy) {
+    const searchType = searchBy.toLowerCase()
+    if (!searchType) return
+    if (searchType === 'all') {
+        return query()
+            .then(mails => {
+                return mails.filter(mail => {
+                    Object.values(mail).some(val => {
+                        String(val).toLowerCase().includes(searchStr)
+                        // console.log('typeof val:', typeof val)
+                    })
+                })
+            })
+    }
+    else return query()
+        .then(mails => mails.filter(mail => {
+            return mail[searchType].toLowerCase().includes(searchStr)
+        }))
+}
+
+function addSentedMail(mail){
+    storageService.post(SENT_MAIL_KEY, mail)
 }

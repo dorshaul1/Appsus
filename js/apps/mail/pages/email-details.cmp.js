@@ -10,7 +10,7 @@ export default {
                         <div class="details-from flex"><h1>{{mail.from}}</h1><p>< {{mail.mailAdress}} ></p></div>
                         <div class="details-date">{{dateToShow}}</div>
                 </div>
-                <div class="main-body-content flex center"><pre>{{mail.body}}</pre></div>
+                <div class="main-body-content flex center"><pre>{{mail.content}}</pre></div>
                 <div class="mail-details-options flex space-between">
                     <button class="delete-mail-btn flex align-items center"><img src="../../../../imgs/icons/delete.svg" @click="deleteMail(mail)"></button>
                     <button class="prev-page-btn flex align-items center"><img src="../../../../imgs/icons/curve-arrow-pointing-left.svg" @click="prevPage"></button>
