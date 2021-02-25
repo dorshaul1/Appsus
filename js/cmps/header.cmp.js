@@ -8,7 +8,7 @@ export default {
             <div class="logo-container flex align-items center">
                 <router-link class="homepage-router" to="/">
                 <div class="svg-container">
-                    <img class="logo-svg" src="../imgs/logo.svg">
+                    <img class="logo-svg" src="imgs/logo.svg">
                 </div>
             </router-link>
                 <h1 class="logo-title">Appsus</h1>
