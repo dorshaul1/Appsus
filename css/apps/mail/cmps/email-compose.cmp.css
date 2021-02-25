@@ -3,11 +3,11 @@
     height: 40px;
     width: 150px;
     border: none;
-    background-color: rgb(247, 247, 247);
+    background-color: #f5f7fa;
     margin-bottom: 20px;
 }
 
 .compose-btn:hover{
     cursor: pointer;
-    background-color: rgb(240, 240, 240);
+    background-color: white;
 }
