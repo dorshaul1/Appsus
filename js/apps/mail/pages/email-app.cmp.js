@@ -9,8 +9,9 @@ export default {
         <div class="mail-main-container flex center">
             <div class="mail-options-container flex column align-items">
                 <compose-btn @compose="compose"/>
-                <choosen-option :chooseName="'inbox'" @click.native="filterAll" :class="isActive('inbox')"/>
-                <choosen-option :chooseName="'favorites'" @click.native="getFavorite" :class="isActive('favorites')" />
+                <choosen-option :chooseName="'Inbox'" @click.native="filterAll" :class="isActive('inbox')"/>
+                <choosen-option :chooseName="'Favorites'" @click.native="getFavorite" :class="isActive('favorites')" />
+                <choosen-option :chooseName="'Sent Mails'" @click.native="sentMails" :class="isActive('sentMails')" />
             </div>
             <div class="mail-massage-container">
                 <email-list :mails="mails" @deleteMail = "deleteMail"/>
@@ -55,6 +56,9 @@ export default {
         },
         isActive(name){
             return {'active-option' : this.choosenOption === name}
+        },
+        sentMails(){
+            this.choosenOption = 'sentMails'
         }
 
     },
