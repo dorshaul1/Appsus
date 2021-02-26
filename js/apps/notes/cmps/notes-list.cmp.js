@@ -125,6 +125,12 @@ export default {
         this.getNotes()
         eventBus.$on('update', this.updateNote)
         eventBus.$on('filter', this.setFilter)
+        eventBus.$on('save', this.saveNote)
+    },
+    destroyed() {
+        eventBus.$off('update', this.updateNote)
+        eventBus.$off('filter', this.setFilter)
+        eventBus.$off('save', this.saveNote)
     },
     components: {
         NotePreview,

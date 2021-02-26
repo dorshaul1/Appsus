@@ -10,3 +10,8 @@
 .todo-txt {
     width: 100%;
 }
+
+.done {
+    text-decoration: line-through;
+    color: rgb(134, 134, 134);
+}

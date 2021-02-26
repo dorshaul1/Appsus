@@ -1,16 +1,32 @@
+import { eventBus } from '../../../services/event-bus-service.js'
+import TodoLi from './todo-li.cmp.js'
+
+
 export default {
-    props: ['info'],
+    props: ['note'],
     template: `
     <section class="note-todos flex">
         <ul class="">
-            <li class="todo-txt" v-for="(todo, idx) in info.todos" :key='idx'> {{todo.txt}} <hr></li>
+            <todo-li v-for="(todo, idx) in note.info.todos" @updateIsDone="updateTodo(idx, $event)"  :todo="todo" :key='idx' />
         </ul>   
         <i class="cat-icon fas fa-list-ul"></i>
     </section>
     `,
+    data() {
+        return {
+        }
+    },
     methods: {
-        
+        updateTodo(idx, todo) {
+            this.note.info.todos[idx] =  todo;
+            eventBus.$emit('save', this.note)
+        }
+    },
+    computed: {
     },
     created() {
+    },
+    components: {
+        TodoLi
     }
 } 
