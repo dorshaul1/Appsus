@@ -103,7 +103,7 @@ function getMailById(mailId) {
 }
 
 function updateMail(mail) {
-    storageService.put(MAIL_KEY, mail)
+    return storageService.put(MAIL_KEY, mail)
 }
 
 function deleteMail(mail) {

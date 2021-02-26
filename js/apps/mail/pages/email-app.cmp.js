@@ -9,17 +9,17 @@ import emailStatus from '../cmps/email-status.cmp.js'
 
 export default {
     template: `
-    <section v-if="mails" class="mail-page flex column center align-items">
+    <section class="mail-page flex column center align-items">
         <div class="mail-main-container flex center common-width">
             <div class="mail-options-container flex column align-items">
                 <compose-btn @compose="compose"/>
                 <choosen-option :chooseName="'Inbox'" @click.native="filterAll" :class="isActive('inbox')"/>
                 <choosen-option :chooseName="'Favorites'" @click.native="getFavorite" :class="isActive('favorites')" />
                 <choosen-option :chooseName="'Sent Mails'" @click.native="sentMails" :class="isActive('sentMails')" />
-            <email-status :mailsRead="readenMailsToShaow"/>
+                <email-status :mailsRead="readPrecenteage"/>
             </div>
             <div class="mail-massage-container">
-                <email-list :mails="mails" @deleteMail = "deleteMail"/>
+                <email-list :mails="mails" @deleteMail = "deleteMail" @changeStatus="calculateReadenMails"/>
                 <mail-compose v-if="isAddingMail" @send="sendMail"/>
             </div>
         </div>
@@ -33,7 +33,7 @@ export default {
             sentedMails: null,
             readenMails: null,
             lengthMail: null,
-            readPrecenteage: null
+            readPrecenteage: 0
         }
     },
     components: {
@@ -42,11 +42,6 @@ export default {
         choosenOption,
         mailCompose,
         emailStatus
-    },
-    computed: {
-        readenMailsToShaow() {
-            return this.calculateReadenMails()
-        }
     },
     methods: {
         compose() {
@@ -92,7 +87,10 @@ export default {
         },
         sendMail(mail) {
             mailServices.createMail(mail)
-                .then(() => this.loadMails())
+                .then(() => {
+                    this.loadMails()
+                    this.calculateReadenMails()
+                })
             this.isAddingMail = false
         },
         calculateReadenMails() {
@@ -100,17 +98,16 @@ export default {
             mailsToCalc.mailsLength
                 .then(mailsLength => this.lengthMail = mailsLength)
             mailsToCalc.readenMails
-                .then(mailsReaden => this.readenMails = mailsReaden)
-            return (this.readenMails / this.lengthMail) * 100
-            // return mailServices.query()
-            //     .then (mails=>mails)
-            // then
-            // return (this.readenMails / this.lengthMail)*100
+                .then(mailsReaden =>{
+                    this.readenMails = mailsReaden
+                    if (mailsReaden) this.readPrecenteage = ((this.readenMails / this.lengthMail) * 100).toFixed(1)
+                }) 
         }
 
     },
     created() {
         this.loadMails()
+        this.calculateReadenMails()
         this.filteredMails()
     },
 }

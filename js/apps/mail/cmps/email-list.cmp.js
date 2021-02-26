@@ -21,16 +21,19 @@ export default {
             mail.isClicked = !mail.isClicked
             mail.isRead = true
             mailServices.updateMail(mail)
+                .then(()=>{
+                    if (mail.isRead) this.$emit('changeStatus')
+                })
         },
-        moveToDetails(mail){
-                this.$router.push(`/mail/details/${mail.id}`)
+        moveToDetails(mail) {
+            this.$router.push(`/mail/details/${mail.id}`)
         },
-        deleteMail(mail){
-                this.$emit('deleteMail', mail)
+        deleteMail(mail) {
+            this.$emit('deleteMail', mail)
         },
-        favorite(mail){
+        favorite(mail) {
             mail.isFavorite = !mail.isFavorite
             mailServices.updateMail(mail)
-s        }
+        }
     }
 }

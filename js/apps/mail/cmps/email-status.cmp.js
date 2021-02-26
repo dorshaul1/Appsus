@@ -1,11 +1,12 @@
 export default {
+    name: 'emailStatus',
     props: ['mailsRead'],
     template: `
-    <section v-if="mailsRead" class="email-status flex center align-items">
+    <section class="email-status flex center align-items">
         <h1 class="flex center align-items">{{showMailsRead}}</h1>
         <!-- <div class="status-container flex center align-items"> -->
             <div class="status-content-container">
-                <div class="status-line" :style="{width: changeStyle}"></div>
+                <div v-if="mailsRead" class="status-line" :style="style"></div>
                 <!-- <style>
                     --line-width: {{mailsRead}}
                     .status-line{
@@ -27,26 +28,15 @@ export default {
         showMailsRead() {
             return `${this.mailsRead}%`
         },
-        changeStyle() {
-            return this.changeWidth()
-        }
     },
     methods: {
-        changeWidth() {
-            this.style.width = this.mailsRead + '%'
-            console.log('this.style.width:', this.style.width)
+        changeWidth(newVal) {
+            this.style.width = newVal + '%'
         }
     },
     watch: {
-        width: (change => {
-            // console.log('change:', change)
-            // this.style.width = String(change) + '%'
-            console.log(change + '%')
-            // return change + '%'
-        })
-        // }
-        // created() {
-        //     // this.changeWidth()
-        // },
+        mailsRead: (function(newVal,) {
+            this.changeWidth(newVal)
+        }),
     }
 }
