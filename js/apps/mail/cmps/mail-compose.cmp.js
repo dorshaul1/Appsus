@@ -1,3 +1,5 @@
+import { eventBus } from "../../../services/event-bus-service.js"
+
 export default {
     template: `
     <section class="mail-compose flex center">
@@ -25,7 +27,9 @@ export default {
     },
     methods: {
         send(){
-            this.$emit('send',{...this.mailToSend})
+            const regex = /\S+@\S+\.\S+/
+            if (regex.test(this.mailToSend.mailAdress)) this.$emit('send',{...this.mailToSend})
+            else console.log('not a valid mail');
         }
     },
 }
