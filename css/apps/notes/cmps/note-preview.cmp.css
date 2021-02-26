@@ -68,7 +68,11 @@
     color: rgb(51, 51, 51);
     position: absolute;
     left: 35px;
-    bottom: 8px;
+    bottom: 9px;
+}
+
+.pinned-sign:hover {
+    cursor: pointer;
 }
 
 .cat-icon {
@@ -76,4 +80,12 @@
     position: absolute;
     bottom: 10px;
     left: 10px;
+}
+
+.note-img {
+    width: 100%;
+}
+
+.note-img img {
+    padding-bottom: 10px;
 }
