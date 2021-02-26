@@ -1,11 +1,3 @@
-// import { mailServices } from '../services/email.service.js'
-// import composeBtn from '../cmps/email-compose.cmp.js'
-// import emailList from '../cmps/email-list.cmp.js'
-// import choosenOption from '../cmps/choosen-option.cmp.js'
-// import mailCompose from '../cmps/mail-compose.cmp.js'
-// import { eventBus } from '../../../services/event-bus-service.js'
-
-
 export default {
     template: `
     <section class="mail-compose flex center">

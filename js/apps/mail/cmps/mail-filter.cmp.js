@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         setFilter() {
-            if (!this.selected) return
+            if (!this.selected) this.selected ='all'
             if (this.searchStr === '') {
                 mailServices.query()
                     .then(mails => eventBus.$emit('filtered', mails))

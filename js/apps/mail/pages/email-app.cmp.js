@@ -1,9 +1,10 @@
 import { mailServices } from '../services/email.service.js'
+import { eventBus } from '../../../services/event-bus-service.js'
 import composeBtn from '../cmps/email-compose.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
 import choosenOption from '../cmps/choosen-option.cmp.js'
 import mailCompose from '../cmps/mail-compose.cmp.js'
-import { eventBus } from '../../../services/event-bus-service.js'
+import emailStatus from '../cmps/email-status.cmp.js'
 
 
 export default {
@@ -15,6 +16,7 @@ export default {
                 <choosen-option :chooseName="'Inbox'" @click.native="filterAll" :class="isActive('inbox')"/>
                 <choosen-option :chooseName="'Favorites'" @click.native="getFavorite" :class="isActive('favorites')" />
                 <choosen-option :chooseName="'Sent Mails'" @click.native="sentMails" :class="isActive('sentMails')" />
+            <email-status :mailsRead="readenMailsToShaow"/>
             </div>
             <div class="mail-massage-container">
                 <email-list :mails="mails" @deleteMail = "deleteMail"/>
@@ -28,14 +30,22 @@ export default {
             isAddingMail: false,
             mails: null,
             choosenOption: 'inbox',
-            sentedMails: null
+            sentedMails: null,
+            readenMails: null,
+            lengthMail: null
         }
     },
     components: {
         composeBtn,
         emailList,
         choosenOption,
-        mailCompose
+        mailCompose,
+        emailStatus
+    },
+    computed: {
+        readenMailsToShaow() {
+            this.calculateReadenMails()
+        }
     },
     methods: {
         compose() {
@@ -81,7 +91,18 @@ export default {
         },
         sendMail(mail) {
             mailServices.createMail(mail)
+                .then(() => this.loadMails())
             this.isAddingMail = false
+        },
+        calculateReadenMails() {
+            var mailsToCalc = mailServices.getReadenMails()
+            mailsToCalc.mailsLength
+                .then(mailsLength => this.lengthMail = mailsLength)
+            mailsToCalc.readenMails
+                .then(mailsReaden => this.readenMails = mailsReaden)
+            // .then(mails => {
+            //     console.log(mails)
+            // })
         }
 
     },
