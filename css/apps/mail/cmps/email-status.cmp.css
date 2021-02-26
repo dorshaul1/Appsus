@@ -1,0 +1,38 @@
+.email-status{
+    color: #f5f7fa;
+    margin-top: 30px;
+    background-color: #788794;
+    width: 200px;
+    height: 37px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+/* .status-container{
+    position: relative;
+}  */
+
+.email-status h1{
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    position: absolute;
+    /* margin: 0 auto; */
+}
+
+.status-content-container{
+    z-index: 1;
+    height: 80%;
+    width: 95%;
+    justify-self: flex-start;
+    /* position: absolute; */
+    border-radius: 20px;
+}
+
+.status-line{
+    background-color: #3e4c59;
+    height: 100%;
+    /* width: 70%; */
+    border-radius: 20px;
+}

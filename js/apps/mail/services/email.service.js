@@ -10,80 +10,82 @@ export const mailServices = {
     deleteMail,
     filterByFavorites,
     searchMail,
-    filterBySented
+    filterBySented,
+    getReadenMails
 }
 
 const MAIL_KEY = 'mailsDB'
-const SENT_MAIL_KEY = 'sentMails'
+// const SENT_MAIL_KEY = 'sentMails'
 
 const gMails = [
     {
-        isClicked: false,
         mailAdress: 'Puki@bla.bla',
         id: utilService.makeId(),
         from: 'Puki',
         subject: 'Wassap?',
         content: 'Pick up!',
-        isRead: false,
         sentAt: Date.now(),
+        isClicked: false,
+        isRead: false,
         isFavorite: false
     },
     {
-        isClicked: false,
         mailAdress: 'Muki@bla.bla',
         id: utilService.makeId(),
         from: 'Muki',
         subject: 'Wassap Man?',
         content: `yo yo!
-            wdeefewjnwkefnjekvnewv
-            sacsjckjknwevewv
-            sjkhvewuihwvuiewv4
-            wevjjkev
-                                
-                        jkhhve
-                            schjcs`,
-        isRead: false,
+                wdeefewjnwkefnjekvnewv
+                sacsjckjknwevewv
+                sjkhvewuihwvuiewv4
+                wevjjkev
+        
+                    jkhhve
+                        schjcs`,
         sentAt: Date.now(),
+        isClicked: false,
+        isRead: false,
         isFavorite: false
     },
     {
-        isClicked: false,
         mailAdress: 'Dor@bla.bla',
         id: utilService.makeId(),
         from: 'Dor',
         subject: 'hi?',
         content: 'how are you?',
-        isRead: false,
         sentAt: Date.now(),
+        isClicked: false,
+        isRead: false,
         isFavorite: false
     },
     {
-        isClicked: false,
         mailAdress: 'Yonatan@bla.bla',
         id: utilService.makeId(),
         from: 'Yonatan',
         subject: 'how are you?',
         content: 'hi!',
-        isRead: false,
         sentAt: Date.now(),
+        isClicked: false,
+        isRead: false,
         isFavorite: false
     }]
 
 function createMail(mail) {
     const newMail =
     {
-        isClicked: false,
         mailAdress: mail.mailAdress,
         id: utilService.makeId(),
         from: mail.from,
         subject: mail.subject,
         content: mail.content,
-        isRead: false,
         sentAt: Date.now(),
+        isClicked: false,
+        isRead: false,
         isFavorite: false,
         isSented: true
     }
-    storageService.post(MAIL_KEY, newMail)
+    return storageService.post(MAIL_KEY, newMail)
+        .then(() => query())
 }
 
 function query() {
@@ -101,7 +103,7 @@ function getMailById(mailId) {
 }
 
 function updateMail(mail) {
-    storageService.put(MAIL_KEY, mail)
+    return storageService.put(MAIL_KEY, mail)
 }
 
 function deleteMail(mail) {
@@ -121,19 +123,31 @@ function filterBySented() {
 
 function searchMail(searchStr, searchBy) {
     const searchType = searchBy.toLowerCase()
+    const searchStrLC = searchStr.toLowerCase()
     if (!searchType) return
-    if (searchType === 'all') {
+    if (searchType !== 'all') {
         return query()
-            .then(mails => {
-                return mails.filter(mail => {
-                    Object.values(mail).some(val => {
-                        String(val).toLowerCase().includes(searchStr)
-                    })
+            .then(mails => mails.filter(mail => {
+                return mail[searchType].toLowerCase().includes(searchStr)
+            }))
+    } else return query()
+        .then(mails => {
+            return mails.filter(obj => {
+                return Object.values(obj).some(val => {
+                    if (typeof val === 'string') {
+                        return val.toLocaleLowerCase().includes(searchStrLC)// console.log('mail:', mail)
+                    }
                 })
             })
+        })
+}
+
+function getReadenMails() {
+    var mailsToCalc = {
+        mailsLength: query()
+            .then(mails => mails.length),
+        readenMails: query()
+            .then(mails => mails.filter(mail => mail.isRead).length)
     }
-    else return query()
-        .then(mails => mails.filter(mail => {
-            return mail[searchType].toLowerCase().includes(searchStr)
-        }))
+    return mailsToCalc
 }

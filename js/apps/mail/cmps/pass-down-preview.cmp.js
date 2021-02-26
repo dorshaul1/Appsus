@@ -1,5 +1,6 @@
 
 export default {
+    name:'pass-down',
     props: ['mail'],
     template: `
         <section class="pass-down-prev-conteainer">

@@ -1,23 +1,25 @@
 import { mailServices } from '../services/email.service.js'
+import { eventBus } from '../../../services/event-bus-service.js'
 import composeBtn from '../cmps/email-compose.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
 import choosenOption from '../cmps/choosen-option.cmp.js'
 import mailCompose from '../cmps/mail-compose.cmp.js'
-import { eventBus } from '../../../services/event-bus-service.js'
+import emailStatus from '../cmps/email-status.cmp.js'
 
 
 export default {
     template: `
-    <section v-if="mails" class="mail-page flex column center align-items">
+    <section class="mail-page flex column center align-items">
         <div class="mail-main-container flex center common-width">
             <div class="mail-options-container flex column align-items">
                 <compose-btn @compose="compose"/>
                 <choosen-option :chooseName="'Inbox'" @click.native="filterAll" :class="isActive('inbox')"/>
                 <choosen-option :chooseName="'Favorites'" @click.native="getFavorite" :class="isActive('favorites')" />
                 <choosen-option :chooseName="'Sent Mails'" @click.native="sentMails" :class="isActive('sentMails')" />
+                <email-status :mailsRead="readPrecenteage"/>
             </div>
             <div class="mail-massage-container">
-                <email-list :mails="mails" @deleteMail = "deleteMail"/>
+                <email-list :mails="mails" @deleteMail = "deleteMail" @changeStatus="calculateReadenMails"/>
                 <mail-compose v-if="isAddingMail" @send="sendMail"/>
             </div>
         </div>
@@ -28,14 +30,18 @@ export default {
             isAddingMail: false,
             mails: null,
             choosenOption: 'inbox',
-            sentedMails: null
+            sentedMails: null,
+            readenMails: null,
+            lengthMail: null,
+            readPrecenteage: 0
         }
     },
     components: {
         composeBtn,
         emailList,
         choosenOption,
-        mailCompose
+        mailCompose,
+        emailStatus
     },
     methods: {
         compose() {
@@ -81,12 +87,27 @@ export default {
         },
         sendMail(mail) {
             mailServices.createMail(mail)
+                .then(() => {
+                    this.loadMails()
+                    this.calculateReadenMails()
+                })
             this.isAddingMail = false
+        },
+        calculateReadenMails() {
+            var mailsToCalc = mailServices.getReadenMails()
+            mailsToCalc.mailsLength
+                .then(mailsLength => this.lengthMail = mailsLength)
+            mailsToCalc.readenMails
+                .then(mailsReaden =>{
+                    this.readenMails = mailsReaden
+                    if (mailsReaden) this.readPrecenteage = ((this.readenMails / this.lengthMail) * 100).toFixed(1)
+                }) 
         }
 
     },
     created() {
         this.loadMails()
+        this.calculateReadenMails()
         this.filteredMails()
     },
 }

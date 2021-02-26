@@ -1,10 +1,4 @@
-// import { mailServices } from '../services/email.service.js'
-// import composeBtn from '../cmps/email-compose.cmp.js'
-// import emailList from '../cmps/email-list.cmp.js'
-// import choosenOption from '../cmps/choosen-option.cmp.js'
-// import mailCompose from '../cmps/mail-compose.cmp.js'
-// import { eventBus } from '../../../services/event-bus-service.js'
-
+import { eventBus } from "../../../services/event-bus-service.js"
 
 export default {
     template: `
@@ -33,7 +27,9 @@ export default {
     },
     methods: {
         send(){
-            this.$emit('send',{...this.mailToSend})
+            const regex = /\S+@\S+\.\S+/
+            if (regex.test(this.mailToSend.mailAdress)) this.$emit('send',{...this.mailToSend})
+            else console.log('not a valid mail');
         }
     },
 }
