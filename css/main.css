@@ -60,6 +60,7 @@ ul {
 img, video, audio {
     max-width: 100%;
     height: auto;
+    outline: none;
 }
 
 a {

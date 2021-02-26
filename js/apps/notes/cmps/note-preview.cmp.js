@@ -9,7 +9,7 @@ export default {
     props: ['note'],
     template: `
     <section :class="pinned" :style=" { background: getColor } " class="note-preview flex column">
-        <component :is="note.type" :info="note.info" @setVal="setAns($event, idx)"></component>
+        <component :is="note.type" :note="note" @setVal="setAns($event, idx)"></component>
         <div v-if="!isEditting" class="note-edit-btns">
             
             <i class="edit-color-btn fas fa-palette">
