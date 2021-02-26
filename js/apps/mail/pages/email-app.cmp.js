@@ -32,7 +32,8 @@ export default {
             choosenOption: 'inbox',
             sentedMails: null,
             readenMails: null,
-            lengthMail: null
+            lengthMail: null,
+            readPrecenteage: null
         }
     },
     components: {
@@ -44,7 +45,7 @@ export default {
     },
     computed: {
         readenMailsToShaow() {
-            this.calculateReadenMails()
+            return this.calculateReadenMails()
         }
     },
     methods: {
@@ -100,9 +101,11 @@ export default {
                 .then(mailsLength => this.lengthMail = mailsLength)
             mailsToCalc.readenMails
                 .then(mailsReaden => this.readenMails = mailsReaden)
-            // .then(mails => {
-            //     console.log(mails)
-            // })
+            return (this.readenMails / this.lengthMail) * 100
+            // return mailServices.query()
+            //     .then (mails=>mails)
+            // then
+            // return (this.readenMails / this.lengthMail)*100
         }
 
     },
