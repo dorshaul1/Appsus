@@ -10,8 +10,9 @@ export default {
     template: `
     <section :class="pinned" :style=" { background: getColor } " class="note-preview flex column">
         <component :is="note.type" :note="note" @setVal="setAns($event, idx)"></component>
-        <div v-if="!isEditting" class="note-edit-btns">
-            
+        <i v-if="note.isPinned" @click="pin" class="pinned-sign fas fa-thumbtack"></i>
+
+        <div v-if="!isEditting" class="note-edit-btns">    
             <i class="edit-color-btn fas fa-palette">
             <div class="colors-container">
                     <span class="color-option" @click="setColor('rgb(255, 255, 255)')" style="background-color: rgb(255, 255, 255);"> &nbsp; </span>

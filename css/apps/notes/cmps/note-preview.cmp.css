@@ -64,8 +64,11 @@
     cursor: pointer;
 }
 
-.pinned {
-    border: 1px outset gray;
+.pinned-sign {
+    color: rgb(51, 51, 51);
+    position: absolute;
+    left: 35px;
+    bottom: 8px;
 }
 
 .cat-icon {
