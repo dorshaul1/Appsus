@@ -105,3 +105,10 @@
         bottom: 4%;
     }
 }
+@media screen and (max-width: 742px) {
+
+    .compose-options-constainer{
+        right: 13%;
+    }
+}
+

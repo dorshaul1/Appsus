@@ -24,6 +24,8 @@
         position: fixed;
         bottom: 7%;
         left: 12%;
+        width: 60px;
+        height: 60px;
         background-color: #b6b6b6e3;
         z-index: 5;
     }
@@ -42,5 +44,6 @@
        .compose-btn{
         bottom: 3%;
         left: 11%;
+        font-size: 0.8rem;
        } 
 }
