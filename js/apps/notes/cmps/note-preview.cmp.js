@@ -9,10 +9,11 @@ export default {
     props: ['note'],
     template: `
     <section :class="pinned" :style=" { background: getColor } " class="note-preview flex column">
-        <component :is="note.type" :note="note" @setVal="setAns($event, idx)"></component>
+        <component :is="note.type" :note="note"></component>
         <i v-if="note.isPinned" @click="pin" class="pinned-sign fas fa-thumbtack"></i>
 
         <div v-if="!isEditting" class="note-edit-btns">    
+            <i @click="toEmail" class="note-to-email-btn fas fa-paper-plane"></i>
             <i class="edit-color-btn fas fa-palette">
             <div class="colors-container">
                     <span class="color-option" @click="setColor('rgb(255, 255, 255)')" style="background-color: rgb(255, 255, 255);"> &nbsp; </span>
@@ -55,6 +56,10 @@ export default {
         },
         pin() {
             this.$emit('pin', this.note);
+        },
+        toEmail() {
+            this.$router.push(`mail/${this.note.id}`)
+            console.log(this.note.id);
         }
     },
     computed: {

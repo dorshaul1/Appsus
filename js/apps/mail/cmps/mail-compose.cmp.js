@@ -1,5 +1,9 @@
 import { eventBus } from "../../../services/event-bus-service.js"
 import { noteService } from "../../notes/services/notes.service.js"
+import NoteImg from "../../notes/cmps/note-img.cmp.js"
+import NoteTodos from "../../notes/cmps/note-todos.cmp.js"
+import NoteTxt from "../../notes/cmps/note-txt.cmp.js"
+import NoteVideo from "../../notes/cmps/note-video.cmp.js"
 
 export default {
     template: `
@@ -11,7 +15,9 @@ export default {
                 <input v-model="mailToSend.from" class="compose-cc" type="text" placeholder="From:"/>
                 <input v-model="mailToSend.subject" class="compose-subject" type="text" placeholder="Subject:"/>
                 <textarea v-if="!note" v-model="mailToSend.content" class="compose-content" type="text" cols="30" rows="17" placeholder="Content:"></textarea>
+                <component v-if="note" :is="note.type" :note="note"></component>
                 <a @click.prevent="send" class="send-mail-btn"><i class="fas fa-share"></i></a>
+                
             </form>
         </div>
     </section>
@@ -43,20 +49,21 @@ export default {
                 })
         }
     },
+    components: {
+        NoteImg,
+        NoteTodos,
+        NoteTxt,
+        NoteVideo
+    },
     watch: {
         '$route.params.note'(id) {
-            // console.log('this.$route.params.note:', this.$route)
-            // console.log(id)
+       
             this.getNote()
-            // console.log('noteId:', noteId)
         }
-        // function(id)=>{
-        // }
     },
     created() {
         this.getNote()
     },
     destroyed() {
-        this.$router.push('/mail').catch(()=>{})
     },
 }
