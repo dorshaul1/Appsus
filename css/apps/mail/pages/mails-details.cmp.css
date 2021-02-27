@@ -42,6 +42,10 @@
     margin-right: 20px;
 }
 
+.main-body-content{
+    font-size: 1em;
+}
+
 .from-details-content p{
     color: rgb(170, 170, 170);
 }
@@ -64,6 +68,7 @@
 
 .delete-mail-btn{
     margin-right: 20px;
+    bottom: 20px;
 }
 
 .details-content-container{
