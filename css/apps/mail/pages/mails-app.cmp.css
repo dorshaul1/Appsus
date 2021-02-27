@@ -54,7 +54,7 @@
         flex-direction: row;
     }
     .mail-options-container {
-        flex-direction: column-reverse;
+        flex-direction: column;
         padding: 0;
     }
     .options-container-app {
