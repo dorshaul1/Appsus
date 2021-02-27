@@ -161,7 +161,7 @@ const notesDB = [
         type: "NoteAudio",
         isPinned: true,
         info: {
-            url: "../../../../audio/timbaland.mp3"
+            url: "audio/timbaland.mp3"
         },
         style: {
             backgroundColor: "rgb(136, 221, 255)"
