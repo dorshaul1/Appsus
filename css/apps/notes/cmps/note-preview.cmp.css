@@ -23,7 +23,7 @@
     width: 275px;
     height: 40px;
     bottom: -35px;
-    left: -160px;
+    left: -120px;
     z-index: 1;
 }
 
@@ -51,12 +51,14 @@
     position: relative;
     opacity: 0;
     align-self: flex-end;
+    margin-top: 10px;
 }
 
 .note-edit-btns > * {
-    padding: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
     color: rgb(172, 172, 172);
-    font-size: 1.4rem;
+    font-size: 1.1rem;
 }
 
 .note-edit-btns > *:hover {
@@ -75,11 +77,16 @@
     cursor: pointer;
 }
 
+.pinned {
+    color: black;
+}
+
 .cat-icon {
     color: rgb(110, 110, 110);
     position: absolute;
     bottom: 10px;
     left: 10px;
+    padding-bottom: 5px;
 }
 
 .note-img {
@@ -88,4 +95,10 @@
 
 .note-img img {
     padding-bottom: 10px;
+}
+
+@media(max-width: 700px) {
+    .note-edit-btns {
+        opacity: 1;
+    }
 }

@@ -4,14 +4,11 @@ import AppMenu from './app-menu.cmp.js'
 export default {
     template: `
     <section class="app-header flex align-items center">
-        <header class="common-width flex space-between"> 
+        <header class="header-container common-width flex space-between"> 
             <div class="logo-container flex align-items center">
                 <router-link class="homepage-router" to="/">
-                <div class="svg-container">
-                    <img class="logo-svg" src="imgs/logo.svg">
-                </div>
-            </router-link>
-                <h1 class="logo-title">Appsus</h1>
+                    <h1 class="logo-title">Appsus</h1>
+                </router-link>
             </div>
             <app-filter />  
             <div class="menu-btn flex">

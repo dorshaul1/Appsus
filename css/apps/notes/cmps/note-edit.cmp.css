@@ -9,3 +9,15 @@
     display: flex;
     justify-content: space-between;
 }
+
+.edit-btns button {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+}
+
+.edit-btns button:hover {
+    cursor: pointer;
+    background-color: rgb(255, 238, 139);
+}

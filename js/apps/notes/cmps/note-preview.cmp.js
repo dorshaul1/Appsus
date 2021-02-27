@@ -10,7 +10,6 @@ export default {
     template: `
     <section :class="pinned" :style=" { background: getColor } " class="note-preview flex column">
         <component :is="note.type" :note="note"></component>
-        <i v-if="note.isPinned" @click="pin" class="pinned-sign fas fa-thumbtack"></i>
         <i v-if="note.type === 'NoteTxt'" class="cat-icon fas fa-font"></i>
         <i v-if="note.type === 'NoteImg'" class=" cat-icon fas fa-image"></i>
         <i v-if="note.type === 'NoteVideo'" class="cat-icon fas fa-video"></i>
@@ -34,7 +33,7 @@ export default {
                 </div>
             </i>
 
-                <i @click="pin" class="pin-btn fas fa-thumbtack"></i>
+                <i @click="pin" :class="pinned" class="pin-btn fas fa-thumbtack"></i>
                 <i @click="edit" class="edit-btn fas fa-edit"></i>
                 <i @click="remove" class="remove-btn fas fa-trash"></i>
         
