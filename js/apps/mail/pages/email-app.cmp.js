@@ -98,12 +98,24 @@ export default {
             mailsToCalc.mailsLength
                 .then(mailsLength => this.lengthMail = mailsLength)
             mailsToCalc.readenMails
-                .then(mailsReaden =>{
+                .then(mailsReaden => {
                     this.readenMails = mailsReaden
                     if (mailsReaden) this.readPrecenteage = ((this.readenMails / this.lengthMail) * 100).toFixed(1)
-                }) 
+                })
         }
 
+    },
+    watch: {
+        '$route.params.note'(noteId) {
+
+            // console.log('this.$route.params.note:', this.$route)
+            if (noteId) this.compose()
+            else this.$router.push('/mail').catch(() => { })
+
+            // console.log('noteId:', noteId)
+        }
+        // function(id)=>{
+        // }
     },
     created() {
         this.loadMails()

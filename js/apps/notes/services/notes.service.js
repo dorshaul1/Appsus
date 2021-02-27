@@ -10,7 +10,8 @@ export const noteService = {
     removeNote,
     updateNote,
     saveNote,
-    pinNote
+    pinNote,
+    getNoteById
 }
 
 function pinNote(note) {
@@ -29,7 +30,7 @@ function setnewNoteTxt(newTxt, note) {
         case 'NoteTxt':
             note.info.txt = newTxt;
             break;
-        case 'NoteImg': 
+        case 'NoteImg':
             note.info.url = newTxt;
             break;
         case 'NoteVideo':
@@ -40,7 +41,7 @@ function setnewNoteTxt(newTxt, note) {
                 return { txt: todo, doneAt: null };
             });
             break;
-        }
+    }
     return Promise.resolve(note);
 }
 
@@ -81,7 +82,7 @@ function addNote(note) {
     return storageService.post(NOTES_KEY, newNote);
 }
 
-function removeNote(noteId) { 
+function removeNote(noteId) {
     return storageService.remove(NOTES_KEY, noteId);
 }
 
@@ -98,7 +99,8 @@ function getInputTypes() {
 }
 
 const notesDB = [
-    {   id: storageService.makeId(),
+    {
+        id: storageService.makeId(),
         type: "NoteTxt",
         isPinned: false,
         info: {
@@ -108,7 +110,8 @@ const notesDB = [
             backgroundColor: "rgb(204,255,153)"
         }
     },
-    {   id: storageService.makeId(),
+    {
+        id: storageService.makeId(),
         type: "NoteTodos",
         isPinned: true,
         info: {
@@ -123,7 +126,8 @@ const notesDB = [
             backgroundColor: "rgb(255,204,136)"
         }
     },
-    {   id: storageService.makeId(),
+    {
+        id: storageService.makeId(),
         type: "NoteImg",
         isPinned: false,
         info: {
@@ -134,7 +138,8 @@ const notesDB = [
             backgroundColor: "rgb(136, 187, 255)"
         }
     },
-    {   id: storageService.makeId(),
+    {
+        id: storageService.makeId(),
         type: "NoteVideo",
         isPinned: false,
         info: {
@@ -164,4 +169,8 @@ const inputTypes = [
         placeholder: 'Enter comma separated list...'
     }
 ]
+
+function getNoteById(id) {
+    return storageService.get(NOTES_KEY, id)
+}
 

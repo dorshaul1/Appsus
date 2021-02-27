@@ -3,6 +3,7 @@ import appsusHome from './pages/appsus-home-page.cmp.js'
 import notesApp from './apps/notes/pages/notes-app.cmp.js'
 import mailPage from './apps/mail/pages/email-app.cmp.js'
 import mailDetails from './apps/mail/pages/email-details.cmp.js'
+// import mailCompose from './apps/mail/cmps/mail-compose.cmp.js'
 // import homePage from './pages/home-page.cmp.js'
 // import aboutPage from './pages/about-page.cmp.js'
 // import addBooks from './pages/add-books.cmp.js'
@@ -27,6 +28,15 @@ const routes = [
         path: '/mail/details/:mailId',
         component: mailDetails,
     },
+    {
+        path: '/mail/:note',
+        component: mailPage,
+    },
+    // {
+    //     path: '/mail:notes?',
+    //     component: mailPage,
+    // },
+
     // {
     //     path: '/about',
     //     component: aboutPage,
