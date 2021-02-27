@@ -1,10 +1,40 @@
-/* The snackbar - position it at the bottom and in the middle of the screen */
 .user-msg {
-  position: absolute;
-  width: 300px;
-  height: 100px;
-  background-color: aliceblue;
+  position: fixed;
+  padding: 10px;
+  background-color: #F5F7FA;
   bottom: 20px;
   right: 20px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+
+.error {
+  border: 3px solid #ff9292;
+  color: #ff9494;;
+}
+
+.success {
+  border: 3px solid rgb(140, 207, 140);
+  color: rgb(140, 207, 140);;
+}
+
+.user-msg h4 {
+  margin-right: 5px;
+}
+
+.user-msg button {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
 }
  
+.user-msg button:hover {
+  background-color: gainsboro;
+  cursor: pointer;
+}

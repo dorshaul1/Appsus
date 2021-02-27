@@ -2,13 +2,14 @@
     list-style: none;
     width: 300px;
     padding: 0;
-    
 }
-
-
 
 .todo-txt {
     width: 100%;
+}
+
+.todo-txt hr {
+    border-color: rgb(94, 94, 94);
 }
 
 .done {
