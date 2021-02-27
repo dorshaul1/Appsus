@@ -4,7 +4,7 @@ import NoteImg from "../../notes/cmps/note-img.cmp.js"
 import NoteTodos from "../../notes/cmps/note-todos.cmp.js"
 import NoteTxt from "../../notes/cmps/note-txt.cmp.js"
 import NoteVideo from "../../notes/cmps/note-video.cmp.js"
-import { mailServices } from "../services/email.service.js"
+import NoteAudio from "../../notes/cmps/note-audio.cmp.js"
 
 export default {
     template: `
@@ -12,7 +12,6 @@ export default {
         <div class="mail-compose-container">
         <div class="compose-header flex align-items">New Message</div>
         <div class="compose-cotainer flex column">
-                    <!-- <form> -->
                     <input v-model="mailToSend.mailAdress" class="compose-to" type="text" placeholder="To:"/>
                     <input v-model="mailToSend.from" class="compose-cc" type="text" placeholder="From:"/>
                     <input v-model="mailToSend.subject" class="compose-subject" type="text" placeholder="Subject:"/>
@@ -23,7 +22,6 @@ export default {
                     <div class="compose-options-constainer">
                         <a @click.prevent="send" class="send-mail-btn"><i class="fas fa-share"></i></a>
                     </div>
-                <!-- </form> -->
                 </div>
                 
         </div>
@@ -36,7 +34,6 @@ export default {
                 mailAdress: null,
                 subject: '',
                 content: null,
-                // noteId: null
                 note: null
             },
             note: null
@@ -79,7 +76,8 @@ export default {
         NoteImg,
         NoteTodos,
         NoteTxt,
-        NoteVideo
+        NoteVideo,
+        NoteAudio
     },
     watch: {
         '$route.params.note'(id) {
@@ -89,9 +87,5 @@ export default {
     created() {
         this.getNote()
 
-    },
-    destroyed() {
-        // this.note = null
-        // this.$router.push('/mail').catch(() => { })
     },
 }

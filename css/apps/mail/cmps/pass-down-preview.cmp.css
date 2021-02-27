@@ -1,7 +1,6 @@
 .pass-down-prev-conteainer {
     background-color: #f5f7fa;
     padding: 10px;
-    /* height: 150px; */
     border-bottom: 1px solid rgb(204, 204, 204);
     overflow: auto;
     position: relative;
@@ -24,15 +23,6 @@
 .from-pass-down-prev-content p {
     color: rgb(170, 170, 170);
 }
-
-/* 
-.pass-down-prev-options{
-
-} */
-/* 
-.pass-down-prev-options {
-    justify-content: flex-end;
-} */
 
 .pass-down-prev-options a {
     font-size: 1.2rem;

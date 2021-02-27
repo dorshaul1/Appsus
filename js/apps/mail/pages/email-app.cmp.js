@@ -5,11 +5,6 @@ import emailList from '../cmps/email-list.cmp.js'
 import choosenOption from '../cmps/choosen-option.cmp.js'
 import mailCompose from '../cmps/mail-compose.cmp.js'
 import emailStatus from '../cmps/email-status.cmp.js'
-import NoteImg from "../../notes/cmps/note-img.cmp.js"
-import NoteTodos from "../../notes/cmps/note-todos.cmp.js"
-import NoteTxt from "../../notes/cmps/note-txt.cmp.js"
-import NoteVideo from "../../notes/cmps/note-video.cmp.js"
-
 
 export default {
     template: `
@@ -144,7 +139,6 @@ export default {
         },
         close() {
             this.isAddingMail = false;
-            console.log('CLOSING');
         }
 
     },
@@ -159,6 +153,5 @@ export default {
         this.calculateReadenMails()
         this.filteredMails()
         this.checkIfNote()
-        // eventBus.$on('closeEdit', close);
     },
 }

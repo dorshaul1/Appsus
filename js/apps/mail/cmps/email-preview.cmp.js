@@ -18,7 +18,6 @@ export default {
             return `${ts.getMonth()+1} / ${ts.getDate()} / ${ts.getFullYear()} `
         },
         isFav(){
-            // console.log('this.mail.isFavorite:', this.mail.isFavorite)
             return this.mail.isFavorite ? '★' : '☆' 
         }
     },

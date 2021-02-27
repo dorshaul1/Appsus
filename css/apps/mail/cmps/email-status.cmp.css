@@ -10,16 +10,11 @@
     margin-bottom: 20px;
 }
 
-/* .status-container{
-    position: relative;
-}  */
-
 .email-status h1{
     height: 100%;
     width: 100%;
     z-index: 2;
     position: absolute;
-    /* margin: 0 auto; */
 }
 
 .status-content-container{
@@ -27,22 +22,18 @@
     height: 80%;
     width: 95%;
     justify-self: flex-start;
-    /* position: absolute; */
     border-radius: 20px;
 }
 
 .status-line{
     background-color: #3e4c59;
     height: 100%;
-    /* width: 70%; */
     border-radius: 20px;
 }
 
 @media screen and (max-width: 1000px){
     .email-status{
         width: 40%;
-        /* margin-left: 10%; */
         margin: 20px;
-        /* margin-bottom: 0; */
     }
 }

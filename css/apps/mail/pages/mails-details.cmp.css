@@ -4,9 +4,6 @@
     padding: 0 10px;
     justify-content: center;
     margin: 0 auto;
-    /* align-items: center; */
-    /* padding: 10px; */
-    
 }
 
 .mail-details-container{
@@ -51,12 +48,9 @@
 }
 
 .mail-details-options{
-    /* justify-self: flex-end; */
     position: absolute;
     bottom: 0;
-    /* right: 20px; */
     width: 100%;
-    /* justify-content: space-between; */
     padding: 40px;
     border-top: 1px solid rgb(214, 213, 213);
     padding-right: 80px;
@@ -68,7 +62,6 @@
 }
 
 .ddelete-mail-btn-details{
-    /* margin-right: 20px; */
     bottom: 20px;
 }
 
@@ -86,19 +79,3 @@
 .note-content img{
     width: 40%;
 }
-
-/* .details-content-container{
-    height: 65%;
-} */
-/* 
-@media screen and (max-width: 1400px) {
-    .mail-prev-date{
-        font-size: 0.63rem
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .mail-prev-date{
-        font-size: 0.58rem
-    }
-} */
