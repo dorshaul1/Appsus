@@ -4,6 +4,7 @@ import NoteImg from "../../notes/cmps/note-img.cmp.js"
 import NoteTodos from "../../notes/cmps/note-todos.cmp.js"
 import NoteTxt from "../../notes/cmps/note-txt.cmp.js"
 import NoteVideo from "../../notes/cmps/note-video.cmp.js"
+import { mailServices } from "../services/email.service.js"
 
 export default {
     template: `
@@ -33,7 +34,7 @@ export default {
             mailToSend: {
                 from: null,
                 mailAdress: null,
-                subject: null,
+                subject: '',
                 content: null,
                 // noteId: null
                 note: null
@@ -44,22 +45,25 @@ export default {
     methods: {
         send() {
             const regex = /\S+@\S+\.\S+/
-            if (regex.test(this.mailToSend.mailAdress)) {
-                this.mailToSend.note = this.note
-                this.$emit('send', { ...this.mailToSend })
-            }
-            else {
-
-                // .then(ans => {
-                // console.log('ans:', ans)
-                // this.getNotes();
+            if (!regex.test(this.mailToSend.mailAdress)) {
                 const msg = {
                     txt: `not a valid mail`,
                     type: 'error'
                 }
                 eventBus.$emit('show-msg', msg)
+                return
             }
-            // })
+
+            if (!this.mailToSend.from){
+                const msg = {
+                    txt: `from field cannot be empty`,
+                    type: 'error'
+                }
+                eventBus.$emit('show-msg', msg)
+                return
+            }
+            
+            this.$emit('send', { ...this.mailToSend })
         },
         getNote() {
             const noteId = this.$route.params.note
