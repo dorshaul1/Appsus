@@ -33,8 +33,7 @@
     display: inline-block;
     margin-right: 10px;
   }
-  .animation-container-enter, .animation-container-leave-to
-  /* .animation-cotainer-leave-active below version 2.1.8 */ {
+  .animation-container-enter, .animation-container-leave-to {
     opacity: 0;
     transform: translateY(30px);
   }

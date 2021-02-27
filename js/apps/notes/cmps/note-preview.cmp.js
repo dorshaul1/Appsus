@@ -16,8 +16,6 @@ export default {
         <i v-if="note.type === 'NoteVideo'" class="cat-icon fas fa-video"></i>
         <i v-if="note.type === 'NoteTodos'" class="cat-icon fas fa-list-ul"></i>
         <i v-if="note.type === 'NoteAudio'" class="cat-icon fas fa-volume-up"></i>
-        
-
         <div v-if="!isEditting" class="note-edit-btns">    
             <i @click="toEmail" class="note-to-email-btn fas fa-paper-plane"></i>
             <i class="edit-color-btn fas fa-palette">
@@ -65,7 +63,6 @@ export default {
         },
         toEmail() {
             this.$router.push(`mail/${this.note.id}`)
-            console.log(this.note.id);
         }
     },
     computed: {

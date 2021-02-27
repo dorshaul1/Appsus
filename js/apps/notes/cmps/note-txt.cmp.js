@@ -4,8 +4,5 @@ export default {
     <section class="note-txt">
         <p> {{ note.info.txt }} </p>
     </section>
-    `,
-    methods: {
-      
-    }
+    `
 }

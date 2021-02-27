@@ -6,11 +6,5 @@ export default {
             <source :src="note.info.url" type="video/ogg">
         </video>
     </section>
-    `,
-    methods: {
-
-    },
-    created() {
-
-    }
+    `
 }

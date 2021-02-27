@@ -9,10 +9,6 @@ export default {
             <li @click="done" :class="isDone"> {{todo.txt}} </li>
     </section>
     `,
-    data() {
-        return {
-        }
-    },
     methods: {
         done() {
             this.todo.isDone = !this.todo.isDone;
@@ -23,7 +19,5 @@ export default {
        isDone() {
            return { done: this.todo.isDone}
        }
-    },
-    created() {
     }
 } 

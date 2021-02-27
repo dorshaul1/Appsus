@@ -26,7 +26,6 @@ export default {
     },
     methods: {
         setFilter() {
-            // console.log('triggered');
             const filters = Object.assign({}, this.filterBy);
             eventBus.$emit('filter', filters);
         }

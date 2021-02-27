@@ -10,8 +10,6 @@ export default {
     <section v-if="notes" class="notes-list flex column align-items common-width">
         <add-note @addNote="addNote" />
         <h1 class="container-title" v-if="pinnedTitle"> Pinned Notes </h1>
-            <!-- <div class="pinned-container common-width"> -->
-                <!-- </div> -->
                 <div class="animation-container pinned-container common-width">
                     <note-preview class="animation-container-item" @pin="pinNote" @saveNote="saveNote" @remove="removeNote" v-for="(note, idx) in pinnedToShow" :note="note" :key="idx" />
                 </div>
@@ -38,7 +36,6 @@ export default {
         addNote(newNote) {
             noteService.addNote(newNote)
                 .then(ans => {
-                    console.log('ans:', ans)
                     this.getNotes();
                     const msg = {
                         txt: `Note added successfully`,
@@ -47,7 +44,6 @@ export default {
                     eventBus.$emit('show-msg', msg)
                 })
                 .catch(err => {
-                    console.log(err);
                     const msg = {
                         txt: 'Note was not added, please try again',
                         type: 'error'
@@ -58,7 +54,6 @@ export default {
         removeNote(noteId) {
             noteService.removeNote(noteId)
             .then(ans => {
-                console.log('ans:', ans)
                 this.getNotes();
                 const msg = {
                     txt: `Removed note successfully`,
@@ -67,7 +62,6 @@ export default {
                 eventBus.$emit('show-msg', msg)
             })
             .catch(err => {
-                console.log(err);
                 const msg = {
                     txt: 'Note was not added, please try again',
                     type: 'error'

@@ -16,7 +16,6 @@ export default {
     },
     methods: {
         setMsg(msg) {
-            console.log('set msg');
             this.msg = msg
             setTimeout(() => {
                 this.msg = null
@@ -33,10 +32,8 @@ export default {
     },
     created() {
         eventBus.$on('show-msg', this.setMsg)
-        console.log('created');
     },
     destroyed(){
         eventBus.$off('show-msg', this.setMsg)
-        console.log('destroyed');
     }
 }

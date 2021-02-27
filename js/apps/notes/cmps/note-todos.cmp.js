@@ -6,24 +6,16 @@ export default {
     props: ['note'],
     template: `
     <section class="note-todos flex">
-        <ul class="">
+        <ul>
             <todo-li v-for="(todo, idx) in note.info.todos" @updateIsDone="updateTodo(idx, $event)"  :todo="todo" :key='idx' />
         </ul>   
     </section>
     `,
-    data() {
-        return {
-        }
-    },
     methods: {
         updateTodo(idx, todo) {
             this.note.info.todos[idx] =  todo;
             eventBus.$emit('save', this.note)
         }
-    },
-    computed: {
-    },
-    created() {
     },
     components: {
         TodoLi

@@ -69,11 +69,19 @@
         justify-content: center;
     }
 
+    .notes-add {
+        flex-direction: column-reverse;
+    }
+
     .notes-container {
         column-count: 1;
         justify-content: center;
     }
 
+
+    .add-btn-container {
+        margin-bottom: 10px;
+    }
 
     .notes-list {
         width: 500px;
@@ -92,13 +100,6 @@
         justify-content: center;
     }
 
-    .notes-add {
-        flex-direction: column-reverse;
-    }
-
-    .add-btn-container {
-        margin-bottom: 10px;
-    }
 
     .colors-container {
         left: -100px;
