@@ -61,6 +61,7 @@
     /* padding-bottom: ; */
     width: 100%;
     height: 100%;
+    /* justify-content: flex-start; */
     /* column-count: unset */
 }
 
@@ -87,7 +88,7 @@
 .compose-content-container{
     height: 100%;
     width: 100%;
-    padding-top: 20px;
+    /* padding-top: 20px; */
 }
 
 .note-content-compose{
@@ -100,6 +101,7 @@
     /* margin: 50px; */
     /* height: 60%; */
     width: 70%;
+    margin-top: 20px;
 }
 
 
