@@ -46,7 +46,7 @@ const gMails = [
                         beyonce`,
         sentAt: Date.now(),
         isClicked: false,
-        isRead: false,
+        isRead: true,
         isFavorite: false,
     },
     {
@@ -70,7 +70,7 @@ const gMails = [
                         remember that`,
         sentAt: Date.now(),
         isClicked: false,
-        isRead: false,
+        isRead: true,
         isFavorite: false,
     },
     {
@@ -82,7 +82,7 @@ const gMails = [
                 are you solved the problem you had?`,
         sentAt: Date.now(),
         isClicked: false,
-        isRead: false,
+        isRead: true,
         isFavorite: false,
     },
     {
