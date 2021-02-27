@@ -79,7 +79,7 @@ const gMails = [
         from: 'Eden Aran',
         subject: 'are you OK?',
         content: `hi Dor and Yonatan!
-                are you solved the problem you had?`,
+                did you solved the problem yet?`,
         sentAt: Date.now(),
         isClicked: false,
         isRead: true,
