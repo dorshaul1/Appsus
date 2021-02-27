@@ -67,6 +67,7 @@ img, video, audio {
 a {
     color: unset;
     text-decoration: none;
+    outline: none
 }
 
 .router-link-active {
