@@ -85,7 +85,7 @@ function createMail(mail) {
         isSented: true,
         note: mail.note
     }
-    console.log(newMail);
+    // console.log(newMail);
     return storageService.post(MAIL_KEY, newMail)
         .then(() => query())
 }

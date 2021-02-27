@@ -32,7 +32,7 @@
 }
 .compose-cotainer{
      width: 100%;
-     height: 100%;
+     height: 93%;
 }
 .compose-to {
     height: 8%;
@@ -87,7 +87,7 @@
 .compose-content-container{
     height: 100%;
     width: 100%;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .note-content-compose{
@@ -99,7 +99,7 @@
 .note-content-compose img{
     /* margin: 50px; */
     /* height: 60%; */
-    width: 40%;
+    width: 70%;
 }
 
 
