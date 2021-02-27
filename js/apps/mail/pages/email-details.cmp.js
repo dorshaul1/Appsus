@@ -1,4 +1,8 @@
 import { mailServices } from '../services/email.service.js'
+import NoteImg from "../../notes/cmps/note-img.cmp.js"
+import NoteTodos from "../../notes/cmps/note-todos.cmp.js"
+import NoteTxt from "../../notes/cmps/note-txt.cmp.js"
+import NoteVideo from "../../notes/cmps/note-video.cmp.js"
 
 export default {
     template: `
@@ -10,7 +14,8 @@ export default {
                         <div class="details-from flex"><h1>{{mail.from}}</h1><p>< {{mail.mailAdress}} ></p></div>
                         <div class="details-date">{{dateToShow}}</div>
                 </div>
-                <div class="main-body-content flex center"><pre>{{mail.content}}</pre></div>
+                <div  v-if="!mail.note" class="main-body-content flex center"><pre>{{mail.content}}</pre></div>
+                <component v-if="mail.note" :is="mail.note.type" :note="mail.note"></component>
                 <div class="mail-details-options flex space-between">
                     <a class="prev-page-btn flex align-items center"><i class="fas fa-arrow-circle-left" @click="prevPage"></i></a>
                     <a class="delete-mail-btn flex align-items center"><i class="fas fa-trash" @click="deleteMail(mail)"></i></a>
@@ -32,6 +37,12 @@ export default {
             new Date()
             return `${ts.getMonth() + 1} / ${ts.getDate()} / ${ts.getFullYear()} `
         }
+    },
+    components: {
+        NoteImg,
+        NoteTodos,
+        NoteTxt,
+        NoteVideo
     },
     methods: {
         deleteMail(mail) {

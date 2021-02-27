@@ -29,6 +29,8 @@ export default {
                 mailAdress: null,
                 subject: null,
                 content: null,
+                // noteId: null
+                note: null
             },
             note: null
         }
@@ -36,7 +38,10 @@ export default {
     methods: {
         send() {
             const regex = /\S+@\S+\.\S+/
-            if (regex.test(this.mailToSend.mailAdress)) this.$emit('send', { ...this.mailToSend })
+            if (regex.test(this.mailToSend.mailAdress)){
+                this.mailToSend.note = this.note
+                this.$emit('send', { ...this.mailToSend })
+            } 
             else console.log('not a valid mail');
         },
         getNote() {

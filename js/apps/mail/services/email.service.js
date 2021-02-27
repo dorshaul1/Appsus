@@ -27,7 +27,7 @@ const gMails = [
         sentAt: Date.now(),
         isClicked: false,
         isRead: false,
-        isFavorite: false
+        isFavorite: false,
     },
     {
         mailAdress: 'Muki@bla.bla',
@@ -45,7 +45,7 @@ const gMails = [
         sentAt: Date.now(),
         isClicked: false,
         isRead: false,
-        isFavorite: false
+        isFavorite: false,
     },
     {
         mailAdress: 'Dor@bla.bla',
@@ -56,7 +56,7 @@ const gMails = [
         sentAt: Date.now(),
         isClicked: false,
         isRead: false,
-        isFavorite: false
+        isFavorite: false,
     },
     {
         mailAdress: 'Yonatan@bla.bla',
@@ -67,7 +67,7 @@ const gMails = [
         sentAt: Date.now(),
         isClicked: false,
         isRead: false,
-        isFavorite: false
+        isFavorite: false,
     }]
 
 function createMail(mail) {
@@ -82,7 +82,8 @@ function createMail(mail) {
         isClicked: false,
         isRead: false,
         isFavorite: false,
-        isSented: true
+        isSented: true,
+        note: mail.note
     }
     return storageService.post(MAIL_KEY, newMail)
         .then(() => query())
