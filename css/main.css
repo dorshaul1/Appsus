@@ -28,6 +28,7 @@
 @import url("./apps/notes/cmps/notes-add.cmp.css"); 
 @import url("./apps/notes/cmps/note-todos.cmp.css"); 
 @import url("./apps/notes/cmps/note-edit.cmp.css"); 
+@import url("./apps/notes/pages/notes-media.css"); 
 
 /* HEADER */
 @import url("./cmps/app-header.cmp.css"); 
@@ -58,6 +59,7 @@ ul {
 }
 
 img, video, audio {
+    width: 100%;
     max-width: 100%;
     height: auto;
     outline: none;

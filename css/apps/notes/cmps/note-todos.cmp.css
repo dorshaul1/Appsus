@@ -1,16 +1,18 @@
+.note-todos {
+    width: 100%;
+}
+
 .note-todos ul {
     list-style: none;
-    width: 300px;
+    width: 100%;
     padding: 0;
 }
 
 .todo-txt {
     width: 100%;
+    
 }
 
-.todo-txt hr {
-    border-color: rgb(94, 94, 94);
-}
 
 .done {
     text-decoration: line-through;

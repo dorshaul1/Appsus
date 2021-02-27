@@ -25,3 +25,7 @@
 .search-btn {
     padding-left: 5px;
 }
+
+.search-bar select:hover {
+    cursor: pointer;
+}

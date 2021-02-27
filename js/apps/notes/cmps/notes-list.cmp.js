@@ -9,11 +9,11 @@ export default {
     template: `
     <section v-if="notes" class="notes-list flex column align-items common-width">
         <add-note @addNote="addNote" />
-        <h1 class="container-title" v-if="titles"> Pinned Notes </h1>
+        <h1 class="container-title" v-if="pinnedTitle"> Pinned Notes </h1>
         <div class="pinned-container common-width">
             <note-preview @pin="pinNote" @saveNote="saveNote" @remove="removeNote" v-for="(note, idx) in pinnedToShow" :note="note" :key="idx" />
         </div>
-        <h1 class="container-title" v-if="titles"> Other Notes </h1>
+        <h1 class="container-title" v-if="listTitle"> Other Notes </h1>
         <div class="notes-container common-width">
                <note-preview @pin="pinNote" @saveNote="saveNote" @remove="removeNote" v-for="(note, idx) in notesToShow" :note="note" :key="idx" />
         </div>
@@ -91,7 +91,8 @@ export default {
     computed: {
         notesToShow() {
             var filteredNotes = this.notes;
-            if (!this.filter) return this.notes;
+            filteredNotes =  filteredNotes.filter(note => !note.isPinned);
+            if (!this.filter) return filteredNotes;
             if (this.filter.noteType !== 'All') {
                 filteredNotes = this.notes.filter(note => {
                     return note.type === this.filter.noteType;
@@ -108,17 +109,39 @@ export default {
                     }
                 })
             }
+
             return filteredNotes;
         },
         pinnedToShow() {
-            return this.notes.filter(note => {
+            let filteredPinned = this.notes.filter(note => {
                 return note.isPinned;
             })
-        },
-        titles() {
-            if (this.pinnedToShow.length !== 0) return true
-            else return false
+            if (!this.filter) return filteredPinned;
+            if (this.filter.noteType !== 'All') {
+                filteredPinned = this.notes.filter(note => {
+                    return note.type === this.filter.noteType;
+                });
+            }
 
+            if (this.filter.noteName) {
+                filteredPinned = filteredPinned.filter(note => {
+                    if (note.type === 'NoteTxt') return note.info.txt.toLowerCase().includes(this.filter.noteName);
+                    if (note.type === 'NoteTodos') {
+                        return note.info.todos.some(todo => {
+                            return todo.txt.toLowerCase().includes(this.filter.noteName);
+                        });
+                    }
+                })
+            }
+
+            return filteredPinned;
+        },
+        pinnedTitle() {
+            if (this.pinnedToShow.length !== 0) return true
+
+        },
+        listTitle() {
+            if (this.notesToShow.length !== 0) return true
         }
     },
     created() {
