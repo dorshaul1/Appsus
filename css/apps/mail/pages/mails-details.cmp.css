@@ -59,6 +59,7 @@
     /* justify-content: space-between; */
     padding: 40px;
     border-top: 1px solid rgb(214, 213, 213);
+    padding-right: 80px;
 }
 
 .mail-details-options a{
@@ -66,8 +67,8 @@
     cursor: pointer;
 }
 
-.delete-mail-btn{
-    margin-right: 20px;
+.ddelete-mail-btn-details{
+    /* margin-right: 20px; */
     bottom: 20px;
 }
 

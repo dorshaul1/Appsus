@@ -20,7 +20,7 @@ export default {
                 </div>
                 <div class="mail-details-options flex space-between">
                     <a class="prev-page-btn flex align-items center"><i class="fas fa-arrow-circle-left" @click="prevPage"></i></a>
-                    <a class="delete-mail-btn flex align-items center"><i class="fas fa-trash" @click="deleteMail(mail)"></i></a>
+                    <a class="delete-mail-btn-details flex align-items center"><i class="fas fa-trash" @click="deleteMail(mail)"></i></a>
 
                 </div>
 
