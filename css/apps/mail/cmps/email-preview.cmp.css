@@ -1,4 +1,4 @@
-.email-preview{
+.email-preview {
     /* height: 20px; */
     background-color: rgba(255, 255, 255, 0.329);
     border-bottom: 1px solid rgb(204, 204, 204);
@@ -10,58 +10,65 @@
     /* height: 60px; */
 }
 
-.email-preview:hover{
+.email-preview:hover {
     cursor: pointer;
 }
 
-.mail-prev-from{
+.mail-prev-from {
     font-size: 1.2rem;
-    flex-basis: 20%;
+    font-weight: bold;
+    /* flex-basis: 20%; */
+    margin-right: 20px;
+    /* background-color: brown; */
+    width: 150px;
 }
 
-.mail-prev-content{
+.mail-prev-content {
     display: flex;
     flex-basis: 70%;
 }
 
-.mail-prev-date{
+.mail-prev-date {
     font-size: 0.9rem;
     flex-basis: 20%;
     justify-content: flex-end;
-    /* width: 60px; */
+    width: 120px;
 }
 
-.mail-prev-subject{
+.mail-prev-subject {
     font-size: 0.9rem;
-    margin-right: 10px;
+    margin-right: 20px;
+    /* width: 150px; */
 }
 
-.mail-prev-body{
+.mail-prev-body {
     font-size: 0.8rem;
     color: rgb(146, 145, 145);
 }
 
-.read{
+.read {
     background-color: #f5f7fa;
 }
 
-.fav-star{
+.fav-star {
     font-size: 30px;
     margin-right: 10px;
 }
 
-.favorite{
-    color: rgb(255, 210, 8);
+.favorite {
+    /* color: rgb(255, 210, 8); */
+    color: rgb(255, 208, 0);
+    /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
 }
 
 @media screen and (max-width: 1400px) {
-    .mail-prev-date{
+    .mail-prev-date {
         font-size: 0.8rem
     }
 }
 
 @media screen and (max-width: 1000px) {
-    .mail-prev-date{
+    .mail-prev-date {
         font-size: 0.7rem
     }
 }

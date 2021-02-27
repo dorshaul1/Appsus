@@ -58,7 +58,7 @@ export default {
         },
 
         loadMails() {
-            return mailServices.query()
+            mailServices.query()
                 .then(mails => {
                     this.mails = mails
                 })
