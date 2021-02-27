@@ -54,15 +54,15 @@ export default {
                 return
             }
 
-            if (!this.mailToSend.from){
-                const msg = {
-                    txt: `from field cannot be empty`,
-                    type: 'error'
-                }
-                eventBus.$emit('show-msg', msg)
-                return
-            }
-            
+            // if (!this.mailToSend.from){
+            //     const msg = {
+            //         txt: `from field cannot be empty`,
+            //         type: 'error'
+            //     }
+            //     eventBus.$emit('show-msg', msg)
+            //     return
+            // }
+            this.mailToSend.note = this.note
             this.$emit('send', { ...this.mailToSend })
         },
         getNote() {

@@ -87,13 +87,19 @@
 .compose-content-container{
     height: 100%;
     width: 100%;
-    padding-top: px;
+    padding-top: 50px;
 }
 
 .note-content-compose{
     /* margin: 50px; */
-    height: 60%;
+    /* height: 60%; */
     width: 100%;
+}
+
+.note-content-compose img{
+    /* margin: 50px; */
+    /* height: 60%; */
+    width: 60%;
 }
 
 
