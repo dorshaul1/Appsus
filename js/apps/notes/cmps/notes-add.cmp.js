@@ -8,17 +8,17 @@ export default {
             <input class="add-input"  autocomplete="off" v-model="emptyNote.txt" :placeholder="currInput.placeholder" :type="currInput.type" />
         </form>
             <div class="add-btn-container">
-                <i @click="setInput(0)" class="fas fa-font"></i>
-                <i @click="setInput(1)" class="fas fa-image"></i>
-                <i @click="setInput(2)" class="fas fa-video"></i>
-                <i @click="setInput(3)" class="fas fa-list-ul"></i>
+                <i @click="setInput(0)" :class="textType" class="fas fa-font"></i>
+                <i @click="setInput(1)" :class="imgType" class="fas fa-image"></i>
+                <i @click="setInput(2)" :class="videoType" class="fas fa-video"></i>
+                <i @click="setInput(3)" :class="listType" class="fas fa-list-ul"></i>
         </div>
     </section>
     `,
     data() {
         return {
             inputTypes: null,
-            currInputIdx: null,
+            currInputIdx: 0,
             currInput: null,
             emptyNote: {
                 txt: '',
@@ -52,6 +52,18 @@ export default {
         }
     },
     computed: {
+        textType() {
+            return { 'selected-type': this.currInputIdx === 0}
+        },
+        imgType() {
+            return { 'selected-type': this.currInputIdx === 1}
+        },
+        videoType() {
+            return { 'selected-type': this.currInputIdx === 2}
+        },
+        listType() {
+            return { 'selected-type': this.currInputIdx === 3}
+        }
     },
     created() {
         this.getInputTypes()

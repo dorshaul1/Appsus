@@ -26,3 +26,7 @@
     border-radius: 5px;
     border: none;
 }
+
+.selected-type {
+    color: rgb(49, 49, 49);
+}
