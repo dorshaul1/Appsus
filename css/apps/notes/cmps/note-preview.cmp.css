@@ -51,6 +51,7 @@
     position: relative;
     opacity: 0;
     align-self: flex-end;
+    margin-top: 10px;
 }
 
 .note-edit-btns > * {
@@ -94,4 +95,10 @@
 
 .note-img img {
     padding-bottom: 10px;
+}
+
+@media(max-width: 700px) {
+    .note-edit-btns {
+        opacity: 1;
+    }
 }

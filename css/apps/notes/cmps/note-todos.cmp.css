@@ -10,7 +10,8 @@
 
 .todo-txt {
     width: 100%;
-    
+    border-bottom: 1px solid black;
+    padding: 7px 0;
 }
 
 

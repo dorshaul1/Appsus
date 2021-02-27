@@ -69,3 +69,7 @@ a {
     color: unset;
     text-decoration: none;
 }
+
+.router-link-active {
+    text-decoration: none;
+}

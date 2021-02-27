@@ -6,7 +6,7 @@ export default {
     props: ['todo'],
     template: `
     <section class="todo-txt">
-            <li @click="done" :class="isDone"> {{todo.txt}} <hr></li>
+            <li @click="done" :class="isDone"> {{todo.txt}} </li>
     </section>
     `,
     data() {

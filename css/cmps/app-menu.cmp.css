@@ -1,8 +1,8 @@
 .app-menu {
     position: absolute;
     background-color: #9AA5B1;
-    left: -200px;
-    top: 50px;
+    left: -185px;
+    top: 30px;
     z-index: 2;
     display: flex;
     justify-content: center;
@@ -11,7 +11,7 @@
 }
 
 .app-menu > * {
-    font-size: 35px;
+    font-size: 30px;
     padding: 15px;
     color: #e9e9e9;
 }

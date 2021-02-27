@@ -4,7 +4,7 @@ export default {
     template: `
     <section class="note-filter">
         <form class="search-bar" @submit.prevent="setFilter">
-            <input @input="setFilter" placeholder="Name" v-model="filterBy.noteName" />
+            <input @input="setFilter" placeholder="Search note" v-model="filterBy.noteName" />
             <select @change="setFilter" v-model.number="filterBy.noteType">
                 <option value="All">All</option>
                 <option value="NoteTxt">Text</option>
