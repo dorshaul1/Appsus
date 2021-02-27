@@ -7,9 +7,4 @@ export default {
         {{chooseName}}
     </section>
     `,
-    computed:{
-        // choose(){
-        //     this.$emit('choose')
-        // }
-    }
 }

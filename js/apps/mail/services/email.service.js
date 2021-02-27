@@ -15,7 +15,6 @@ export const mailServices = {
 }
 
 const MAIL_KEY = 'mailsDB'
-// const SENT_MAIL_KEY = 'sentMails'
 
 const gMails = [
     {
@@ -113,7 +112,6 @@ function createMail(mail) {
         isSented: true,
         note: mail.note
     }
-    // console.log(newMail);
     return storageService.post(MAIL_KEY, newMail)
         .then(() => query())
 }
@@ -125,15 +123,6 @@ function query() {
     }
     return storageService.query(MAIL_KEY);
 }
-// function query() {
-//     return storageService.query(MAIL_KEY)
-//         .then((mails) => {
-//             if (!mails.length) {
-//                 utilService.saveToStorage(MAIL_KEY, gMails)
-//             }
-//             return mails
-//         });
-// }
 
 function getMailById(mailId) {
     return storageService.get(MAIL_KEY, mailId)

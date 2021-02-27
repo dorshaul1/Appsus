@@ -4,17 +4,9 @@ export default {
     template: `
     <section class="email-status flex center align-items">
         <h1 class="flex center align-items">{{showMailsRead}}</h1>
-        <!-- <div class="status-container flex center align-items"> -->
             <div class="status-content-container">
                 <div v-if="mailsRead" class="status-line" :style="style"></div>
-                <!-- <style>
-                    --line-width: {{mailsRead}}
-                    .status-line{
-                        width: 30%
-                    }
-                </style> -->
             </div>
-        <!-- </div> -->
     </section>
     `,
     data() {

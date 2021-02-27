@@ -3,6 +3,7 @@ import NoteImg from "../../notes/cmps/note-img.cmp.js"
 import NoteTodos from "../../notes/cmps/note-todos.cmp.js"
 import NoteTxt from "../../notes/cmps/note-txt.cmp.js"
 import NoteVideo from "../../notes/cmps/note-video.cmp.js"
+import NoteAudio from "../../notes/cmps/note-audio.cmp.js"
 
 export default {
     template: `
@@ -44,7 +45,8 @@ export default {
         NoteImg,
         NoteTodos,
         NoteTxt,
-        NoteVideo
+        NoteVideo,
+        NoteAudio
     },
     methods: {
         deleteMail(mail) {

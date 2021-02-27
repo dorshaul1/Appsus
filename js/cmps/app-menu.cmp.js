@@ -1,4 +1,3 @@
-import { eventBus } from '../services/event-bus-service.js'
 
 export default {
     props: ['isMenuOpen'],
@@ -18,7 +17,6 @@ export default {
         },
         closeMenuMail() {
             this.$emit('close');
-            // eventBus.$emit('closeEdit')
         }
         
     },

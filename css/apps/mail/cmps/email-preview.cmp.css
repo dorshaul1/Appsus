@@ -1,13 +1,10 @@
 .email-preview {
-    /* height: 20px; */
     background-color: rgba(255, 255, 255, 0.329);
     border-bottom: 1px solid rgb(204, 204, 204);
     display: flex;
     padding: 10px;
     width: 100%;
-    /* border-radius: 7px; */
     position: relative;
-    /* height: 60px; */
 }
 
 .email-preview:hover {
@@ -17,9 +14,7 @@
 .mail-prev-from {
     font-size: 1.2rem;
     font-weight: bold;
-    /* flex-basis: 20%; */
     margin-right: 20px;
-    /* background-color: brown; */
     width: 150px;
 }
 
@@ -38,7 +33,6 @@
 .mail-prev-subject {
     font-size: 0.9rem;
     margin-right: 20px;
-    /* width: 150px; */
 }
 
 .mail-prev-body {
@@ -56,9 +50,7 @@
 }
 
 .favorite {
-    /* color: rgb(255, 210, 8); */
     color: rgb(255, 208, 0);
-    /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
 }
 
 @media screen and (max-width: 1400px) {
