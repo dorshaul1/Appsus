@@ -8,15 +8,16 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    opacity: 0;
 }
 
-.app-menu > * {
+.app-menu>* {
     font-size: 30px;
     padding: 15px;
     color: #e9e9e9;
 }
 
-.app-menu > * :hover {
+.app-menu>* :hover {
     color: white;
 }
 

@@ -10,12 +10,15 @@ export default {
     <section v-if="notes" class="notes-list flex column align-items common-width">
         <add-note @addNote="addNote" />
         <h1 class="container-title" v-if="pinnedTitle"> Pinned Notes </h1>
-        <div class="pinned-container common-width">
-            <note-preview @pin="pinNote" @saveNote="saveNote" @remove="removeNote" v-for="(note, idx) in pinnedToShow" :note="note" :key="idx" />
-        </div>
+            <!-- <div class="pinned-container common-width"> -->
+                <!-- </div> -->
+                <div class="animation-container pinned-container common-width">
+                    <note-preview class="animation-container-item" @pin="pinNote" @saveNote="saveNote" @remove="removeNote" v-for="(note, idx) in pinnedToShow" :note="note" :key="idx" />
+                </div>
+   
         <h1 class="container-title" v-if="listTitle"> Other Notes </h1>
-        <div class="notes-container common-width">
-               <note-preview @pin="pinNote" @saveNote="saveNote" @remove="removeNote" v-for="(note, idx) in notesToShow" :note="note" :key="idx" />
+        <div class="animation-container notes-container common-width">
+               <note-preview class="animation-container-item" @pin="pinNote" @saveNote="saveNote" @remove="removeNote" v-for="(note, idx) in notesToShow" :note="note" :key="idx" />
         </div>
     </section>
     `,
