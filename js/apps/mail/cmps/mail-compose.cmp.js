@@ -62,12 +62,12 @@ export default {
     },
     watch: {
         '$route.params.note'(id) {
-       
             this.getNote()
         }
     },
     created() {
         this.getNote()
+        
     },
     destroyed() {
     },

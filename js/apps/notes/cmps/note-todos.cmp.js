@@ -9,7 +9,6 @@ export default {
         <ul class="">
             <todo-li v-for="(todo, idx) in note.info.todos" @updateIsDone="updateTodo(idx, $event)"  :todo="todo" :key='idx' />
         </ul>   
-        <i class="cat-icon fas fa-list-ul"></i>
     </section>
     `,
     data() {

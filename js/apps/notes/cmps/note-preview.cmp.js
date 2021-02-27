@@ -11,6 +11,11 @@ export default {
     <section :class="pinned" :style=" { background: getColor } " class="note-preview flex column">
         <component :is="note.type" :note="note"></component>
         <i v-if="note.isPinned" @click="pin" class="pinned-sign fas fa-thumbtack"></i>
+        <i v-if="note.type === 'NoteTxt'" class="cat-icon fas fa-font"></i>
+        <i v-if="note.type === 'NoteImg'" class=" cat-icon fas fa-image"></i>
+        <i v-if="note.type === 'NoteVideo'" class="cat-icon fas fa-video"></i>
+        <i v-if="note.type === 'NoteTodos'" class="cat-icon fas fa-list-ul"></i>
+        
 
         <div v-if="!isEditting" class="note-edit-btns">    
             <i @click="toEmail" class="note-to-email-btn fas fa-paper-plane"></i>

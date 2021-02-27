@@ -17,6 +17,10 @@ export default {
             if (path === '/notes') this.currFilter = 'NoteFilter';
             if (path === '/mail') this.currFilter = 'MailFilter';
             if (path === '/') this.currFilter = null;
+            
+            var regex = /(?<=mail).+/;
+            var mailUrl = path.match(regex);
+            if (mailUrl) this.currFilter = 'MailFilter';
         }
     },
     components: {
@@ -27,9 +31,9 @@ export default {
         this.setFilter(this.$route.fullPath)
 
     },
-    watch:{
-        $route (to, from){
+    watch: {
+        $route(to, from) {
             this.setFilter(to.fullPath)
         }
-    } 
+    }
 }

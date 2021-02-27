@@ -110,9 +110,15 @@ export default {
         },
         checkIfNote() {
             const noteId = this.$route.params.note;
-            console.log('noteId:', noteId)
             if (noteId) this.compose()
-            else this.$router.push('/mail').catch(() => { })
+            else {
+                this.close()
+                this.$router.push('/mail').catch(() => { })
+            }
+        },
+        close() {
+            this.isAddingMail = false;
+            console.log('CLOSING');
         }
 
     },
@@ -127,5 +133,6 @@ export default {
         this.calculateReadenMails()
         this.filteredMails()
         this.checkIfNote()
+        // eventBus.$on('closeEdit', close);
     },
 }

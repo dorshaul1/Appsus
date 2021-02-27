@@ -1,3 +1,4 @@
+import { eventBus } from '../services/event-bus-service.js'
 
 export default {
     props: ['isMenuOpen'],
@@ -6,7 +7,7 @@ export default {
         <div class="menu-screen" @click="closeMenu"></div>
         <nav class="app-menu flex">
             <router-link @click.native="closeMenu" to="/notes"><i class="fas fa-sticky-note"></i></router-link>
-            <router-link @click.native="closeMenu" to="/mail"><i class="fas fa-envelope"></i></router-link>
+            <router-link @click.native="closeMenuMail" to="/mail"><i class="fas fa-envelope"></i></router-link>
             <router-link @click.native="closeMenu" to="/"><i class="fas fa-home"></i></router-link>
         </nav>
     </section>
@@ -14,6 +15,11 @@ export default {
     methods: {
         closeMenu() {
             this.$emit('close');
+        },
+        closeMenuMail() {
+            this.$emit('close');
+            // eventBus.$emit('closeEdit')
         }
+        
     },
 }
