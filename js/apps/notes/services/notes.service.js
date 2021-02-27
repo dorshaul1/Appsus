@@ -36,6 +36,9 @@ function setnewNoteTxt(newTxt, note) {
         case 'NoteVideo':
             note.info.url = newTxt;
             break;
+        case 'NoteAudio':
+            note.info.url = newTxt;
+            break;
         case 'NoteTodos':
             note.info.todos = newTxt.split(',').map(todo => {
                 return { txt: todo, doneAt: null };
@@ -78,6 +81,10 @@ function addNote(note) {
                 return { txt: todo, doneAt: null };
             });
             break;
+        case 3:
+            newNote.type = 'NoteAudio'
+            newNote.info.url = note.txt;
+            break;
     }
     return storageService.post(NOTES_KEY, newNote);
 }
@@ -107,7 +114,7 @@ const notesDB = [
             txt: "Fullstack Me Baby!"
         },
         style: {
-            backgroundColor: "rgb(204,255,153)"
+            backgroundColor: "rgb(221, 187, 255)"
         }
     },
     {
@@ -123,7 +130,7 @@ const notesDB = [
             ]
         },
         style: {
-            backgroundColor: "rgb(255,204,136)"
+            backgroundColor: "rgb(255, 255, 136)"
         }
     },
     {
@@ -148,7 +155,94 @@ const notesDB = [
         style: {
             backgroundColor: "rgb(255,255,255)"
         }
-    }
+    },
+    {
+        id: storageService.makeId(),
+        type: "NoteAudio",
+        isPinned: true,
+        info: {
+            url: "../../../../audio/timbaland.mp3"
+        },
+        style: {
+            backgroundColor: "rgb(136, 221, 255)"
+        }
+    },
+    {
+        id: storageService.makeId(),
+        type: "NoteImg",
+        isPinned: true,
+        info: {
+            url: "https://media.giphy.com/media/h40iIBC3wqOns75yOa/giphy.gif",
+            title: "Me playing Mi"
+        },
+        style: {
+            backgroundColor: "rgb(255, 136, 136)"
+        }
+    },
+    {
+        id: storageService.makeId(),
+        type: "NoteImg",
+        isPinned: false,
+        info: {
+            url: "https://media.giphy.com/media/3o7qE2VAxuXWeyvJIY/giphy.gif",
+            title: "Me playing Mi"
+        },
+        style: {
+            backgroundColor: "rgb(204, 255, 153)"
+        }
+    },
+    {
+        id: storageService.makeId(),
+        type: "NoteTodos",
+        isPinned: true,
+        info: {
+            todos: [
+                { txt: "flex", isDone: false },
+                { txt: "grid", isDone: false },
+                { txt: "Bootstrap", isDone: false },
+                { txt: "CSS won me", isDone: false }
+            ]
+        },
+        style: {
+            backgroundColor: "rgb(170, 255, 238)"
+        }
+    },
+    {
+        id: storageService.makeId(),
+        type: "NoteTxt",
+        isPinned: false,
+        info: {
+            txt: "Its not a bug its a feature.."
+        },
+        style: {
+            backgroundColor: "rgb(255, 204, 136)"
+        }
+    },
+    {
+        id: storageService.makeId(),
+        type: "NoteImg",
+        isPinned: false,
+        info: {
+            url: "https://media.giphy.com/media/ASzK5wWjMtc6A/giphy.gif",
+            title: "Me playing Mi"
+        },
+        style: {
+            backgroundColor: "rgb(136, 221, 255)"
+        }
+    },
+    {
+        id: storageService.makeId(),
+        type: "NoteTxt",
+        isPinned: true,
+        info: {
+            txt: "The only people up at 3AM are either in love, lonely drunk or PROGRAMMER"
+        },
+        style: {
+            backgroundColor: "rgb(221, 221, 221)"
+        }
+    },
+    
+    
 ]
 
 const inputTypes = [
@@ -167,6 +261,10 @@ const inputTypes = [
     {
         type: 'text',
         placeholder: 'Enter comma separated list...'
+    },
+    {
+        type: 'url',
+        placeholder: 'Enter audio URL...'
     }
 ]
 

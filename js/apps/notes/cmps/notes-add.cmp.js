@@ -12,6 +12,7 @@ export default {
                 <i @click="setInput(1)" :class="imgType" class="fas fa-image"></i>
                 <i @click="setInput(2)" :class="videoType" class="fas fa-video"></i>
                 <i @click="setInput(3)" :class="listType" class="fas fa-list-ul"></i>
+                <i @click="setInput(4)" :class="audioType" class="fas fa-volume-up"></i>
         </div>
     </section>
     `,
@@ -63,6 +64,9 @@ export default {
         },
         listType() {
             return { 'selected-type': this.currInputIdx === 3}
+        },
+        audioType() {
+            return { 'selected-type': this.currInputIdx === 4}
         }
     },
     created() {

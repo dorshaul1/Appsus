@@ -2,10 +2,12 @@ import { eventBus } from "../services/event-bus-service.js"
 
 export default {
     template: `
+    <transition name="msg">
         <section v-if="msg" class="user-msg" :class="show">
             <h4>{{msg.txt}}</h4>
             <button @click="msg=null">X</button>
         </section>
+    </transition>
     `,
     data() {
         return {

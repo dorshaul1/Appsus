@@ -3,14 +3,14 @@ import { eventBus } from '../services/event-bus-service.js'
 export default {
     props: ['isMenuOpen'],
     template: `
-    <section v-if="isMenuOpen" >
-        <div class="menu-screen" @click="closeMenu"></div>
-        <nav class="app-menu flex">
+        <section v-if="isMenuOpen" >
+            <div class="menu-screen" @click="closeMenu"></div>
+            <nav class="app-menu flex">
             <router-link @click.native="closeMenu" to="/notes"><i class="fas fa-sticky-note"></i></router-link>
             <router-link @click.native="closeMenuMail" to="/mail"><i class="fas fa-envelope"></i></router-link>
             <router-link @click.native="closeMenu" to="/"><i class="fas fa-home"></i></router-link>
-        </nav>
-    </section>
+            </nav>
+        </section>
     `,
     methods: {
         closeMenu() {

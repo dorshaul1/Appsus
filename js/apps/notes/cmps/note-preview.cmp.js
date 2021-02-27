@@ -2,7 +2,8 @@ import NoteTxt from './note-txt.cmp.js'
 import NoteImg from './note-img.cmp.js'
 import NoteTodos from './note-todos.cmp.js'
 import NoteVideo from './note-video.cmp.js'
-import noteEdit from './note-edit.cmp.js'
+import NoteEdit from './note-edit.cmp.js'
+import NoteAudio from './note-audio.cmp.js'
 
 
 export default {
@@ -14,6 +15,7 @@ export default {
         <i v-if="note.type === 'NoteImg'" class=" cat-icon fas fa-image"></i>
         <i v-if="note.type === 'NoteVideo'" class="cat-icon fas fa-video"></i>
         <i v-if="note.type === 'NoteTodos'" class="cat-icon fas fa-list-ul"></i>
+        <i v-if="note.type === 'NoteAudio'" class="cat-icon fas fa-volume-up"></i>
         
 
         <div v-if="!isEditting" class="note-edit-btns">    
@@ -81,6 +83,7 @@ export default {
         NoteImg,
         NoteTodos,
         NoteVideo,
-        noteEdit
+        NoteEdit,
+        NoteAudio
     },
 }

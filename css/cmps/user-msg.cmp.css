@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 
@@ -35,6 +36,20 @@
 }
  
 .user-msg button:hover {
-  background-color: gainsboro;
+  background-color: rgb(214, 214, 214);
   cursor: pointer;
+}
+
+.msg-enter,
+.msg-leave-to {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.msg-enter-active,
+.msg-leave-active {
+  transition: all 0.4s;
 }

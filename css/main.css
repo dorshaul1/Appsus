@@ -64,6 +64,10 @@ img, video, audio {
     outline: none;
 }
 
+audio {
+    height: 50px;
+}
+
 button{
     outline: none;
     
