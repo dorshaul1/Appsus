@@ -1,51 +1,68 @@
-.pass-down-prev-conteainer{
+.pass-down-prev-conteainer {
     background-color: #f5f7fa;
     padding: 10px;
     /* height: 150px; */
     border-bottom: 1px solid rgb(204, 204, 204);
     overflow: auto;
-
+    position: relative;
 }
 
-.pass-down-prev-header-content{
+.pass-down-prev-header-content {
     font-size: 30px;
     margin-bottom: 10px;
 }
 
-.from-pass-down-prev-content{
+.from-pass-down-prev-content {
     width: 100%;
     margin-bottom: 10px;
 }
 
-.from-pass-down-prev-content h1{
+.from-pass-down-prev-content h1 {
     margin-right: 20px;
 }
 
-.from-pass-down-prev-content p{
+.from-pass-down-prev-content p {
     color: rgb(170, 170, 170);
 }
+
 /* 
 .pass-down-prev-options{
 
 } */
+/* 
+.pass-down-prev-options {
+    justify-content: flex-end;
+} */
 
-.pass-down-prev-options a{
+.pass-down-prev-options a {
     font-size: 1.6rem;
     margin-left: 15px;
     border: none;
     cursor: pointer;
 }
 
-.pass-down-prev-body-content{
+.pass-down-prev-body-content {
     overflow: auto;
 }
 
-.note-content-pass-down{
+.note-content-pass-down {
     margin: 20px;
     height: 60%;
     width: 100%;
 }
 
-.content-container{
+.content-container {
     height: 65%;
+}
+
+.full-screen-btn {
+    position: absolute;
+    right: 1%;
+    top: 12%;
+}
+.delete-mail-btn {
+    position: absolute;
+    right: 3%;
+    top: 12%;
+
 }

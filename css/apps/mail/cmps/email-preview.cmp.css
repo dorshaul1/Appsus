@@ -26,7 +26,8 @@
 
 .mail-prev-date{
     font-size: 0.9rem;
-    flex-basis: 10%;
+    flex-basis: 20%;
+    justify-content: flex-end;
     /* width: 60px; */
 }
 
@@ -55,12 +56,12 @@
 
 @media screen and (max-width: 1400px) {
     .mail-prev-date{
-        font-size: 0.63rem
+        font-size: 0.8rem
     }
 }
 
 @media screen and (max-width: 1000px) {
     .mail-prev-date{
-        font-size: 0.58rem
+        font-size: 0.7rem
     }
 }

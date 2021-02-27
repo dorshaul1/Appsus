@@ -35,9 +35,6 @@
 }
 
 @media screen and (max-width: 1400px) {
-    .mail-page {
-        /* background-color: tomato; */
-    }
     .mail-main-container {
         width: 90%;
     }
@@ -52,6 +49,7 @@
     }
     .choosen-option-container {
         flex-direction: row;
+        margin: 0;
     }
     .mail-options-container {
         flex-direction: column;

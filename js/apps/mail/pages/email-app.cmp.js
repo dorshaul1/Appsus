@@ -66,7 +66,14 @@ export default {
 
         deleteMail(mail) {
             mailServices.deleteMail(mail)
-                .then((mails) => this.mails = mails)
+                .then((mails) => {
+                    this.mails = mails
+                    const msg = {
+                        txt: `The email was deleted`,
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg)
+                })
         },
         filterAll() {
             this.choosenOption = 'inbox'
@@ -102,6 +109,18 @@ export default {
                 .then(() => {
                     this.loadMails()
                     this.calculateReadenMails()
+                    const msg = {
+                        txt: `The email was sending succesfuly`,
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg)
+                })
+                .catch(()=>{
+                    const msg = {
+                        txt: `Errorr! The email wasn't sending succesfuly`,
+                        type: 'error'
+                    }
+                    eventBus.$emit('show-msg', msg)
                 })
             this.isAddingMail = false
         },
