@@ -16,11 +16,15 @@ export default {
     <section class="mail-page flex column center align-items">
         <div class="mail-main-container flex center common-width">
             <div class="mail-options-container flex column align-items">
-                <compose-btn @compose="compose"/>
-                <choosen-option :chooseName="'Inbox'" @click.native="filterAll" :class="isActive('inbox')"/>
-                <choosen-option :chooseName="'Favorites'" @click.native="getFavorite" :class="isActive('favorites')" />
-                <choosen-option :chooseName="'Sent Mails'" @click.native="sentMails" :class="isActive('sentMails')" />
-                <email-status :mailsRead="readPrecenteage"/>
+                <div class="options-container-app flex column align-items center">
+                    <compose-btn @compose="compose"/>
+                    <email-status :mailsRead="readPrecenteage"/>
+                </div>
+                <div class="choosen-option-container flex column">
+                    <choosen-option :chooseName="'Inbox'" @click.native="filterAll" :class="isActive('inbox')"/>
+                    <choosen-option :chooseName="'Favorites'" @click.native="getFavorite" :class="isActive('favorites')" />
+                    <choosen-option :chooseName="'Sent Mails'" @click.native="sentMails" :class="isActive('sentMails')" />
+                </div>
             </div>
             <div class="mail-massage-container">
                 <email-list :mails="mails" @deleteMail = "deleteMail" @changeStatus="calculateReadenMails"/>
@@ -69,12 +73,14 @@ export default {
             mailServices.query()
                 .then(mails => this.mails = mails)
             this.isAddingMail = false
+            this.$router.push('/mail').catch(() => { })
         },
         getFavorite() {
             this.choosenOption = 'favorites'
             mailServices.filterByFavorites()
                 .then(mails => this.mails = mails)
             this.isAddingMail = false
+            this.$router.push('/mail').catch(() => { })
         },
         isActive(name) {
             return { 'active-option': this.choosenOption === name }
@@ -84,6 +90,7 @@ export default {
             mailServices.filterBySented()
                 .then(mails => this.mails = mails)
             this.isAddingMail = false
+            this.$router.push('/mail').catch(() => { })
         },
         filteredMails() {
             eventBus.$on('filtered', (filteredMails) => {

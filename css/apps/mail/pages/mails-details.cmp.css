@@ -19,10 +19,10 @@
 
 .mail-details-content-container{
     background-color: #f5f7fa;
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
     border-radius: 7px;
-    padding: 10px;
+    padding: 20px;
     position: relative;
 }
 
@@ -46,10 +46,6 @@
     color: rgb(170, 170, 170);
 }
 
-.main-body-content{
-
-}
-
 .mail-details-options{
     /* justify-self: flex-end; */
     position: absolute;
@@ -65,3 +61,34 @@
     font-size: 1.6rem;
     cursor: pointer;
 }
+
+.delete-mail-btn{
+    margin-right: 20px;
+}
+
+.details-content-container{
+    height: 60%;
+    width: 100%;
+}
+
+.note-content{
+    margin: 20px;
+    height: 60%;
+    width: 100%;
+}
+
+/* .details-content-container{
+    height: 65%;
+} */
+/* 
+@media screen and (max-width: 1400px) {
+    .mail-prev-date{
+        font-size: 0.63rem
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .mail-prev-date{
+        font-size: 0.58rem
+    }
+} */

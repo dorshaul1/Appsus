@@ -1,13 +1,46 @@
 .compose-btn{
     border-radius: 50px;
     height: 40px;
-    width: 150px;
+    width: 60%;
     border: none;
     background-color: #f5f7fa;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    font-size: 0.7rem;
+}
+
+.compose-btn h1{
+    margin-right: 10PX;
 }
 
 .compose-btn:hover{
     cursor: pointer;
     background-color: white;
+}
+
+
+@media screen and (max-width: 1000px){
+    .compose-btn{
+        width: 10%;
+        position: fixed;
+        bottom: 7%;
+        left: 12%;
+        background-color: #b6b6b6e3;
+        z-index: 5;
+    }
+
+    .compose-btn:hover{
+        cursor: pointer;
+        background-color: rgb(219, 219, 219);
+    }
+
+    .compose-btn h1{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 742px) {
+       .compose-btn{
+        bottom: 3%;
+        left: 11%;
+       } 
 }

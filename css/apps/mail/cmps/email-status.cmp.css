@@ -2,11 +2,12 @@
     color: #f5f7fa;
     margin-top: 30px;
     background-color: #788794;
-    width: 200px;
+    width: 80%;
     height: 37px;
     border-radius: 20px;
     font-size: 0.9rem;
     position: relative;
+    margin-bottom: 20px;
 }
 
 /* .status-container{
@@ -35,4 +36,13 @@
     height: 100%;
     /* width: 70%; */
     border-radius: 20px;
+}
+
+@media screen and (max-width: 1000px){
+    .email-status{
+        width: 40%;
+        /* margin-left: 10%; */
+        margin: 20px;
+        /* margin-bottom: 0; */
+    }
 }

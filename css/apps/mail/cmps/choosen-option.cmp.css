@@ -9,7 +9,13 @@
     color: #f5f7fa;
 }
 
-.active-option{
+.active-option {
     background-color: #616e7c;
     color: #f5f7fa;
+}
+
+@media screen and (max-width: 1000px) {
+    .choosen-option {
+        border-bottom: 1px solid rgb(138, 138, 138);
+    }
 }
