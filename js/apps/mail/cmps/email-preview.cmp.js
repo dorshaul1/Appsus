@@ -4,7 +4,7 @@ export default {
         <section class="email-preview flex align-items space-between" :class="{read : !mail.isRead}" @click="select(mail)">
             <span class= "fav-star" @click.stop='favorite' :class="{favorite : mail.isFavorite}">{{isFav}}</span>
             <h1 class="mail-prev-from">{{mail.from}}</h1>
-            <div class="mail-prev-content">    
+            <div class="mail-prev-content flex align-items">    
                 <p class="mail-prev-subject">{{mail.subject}}</p>
                 <p class="mail-prev-body">{{mail.content}}</p>
             </div>
