@@ -59,7 +59,6 @@ ul {
 }
 
 img, video, audio {
-    width: 100%;
     max-width: 100%;
     height: auto;
     outline: none;

@@ -87,17 +87,16 @@
 .compose-content-container{
     height: 100%;
     width: 100%;
+    padding-top: px;
 }
 
 .note-content-compose{
-    margin: 50px;
+    /* margin: 50px; */
     height: 60%;
     width: 100%;
 }
 
-.compose-content-container{
-    height: 65%;
-}
+
 
 @media screen and (max-width: 1000px) {
 

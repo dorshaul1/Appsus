@@ -3,12 +3,11 @@
     background-color: #9AA5B1;
     left: -185px;
     top: 30px;
-    z-index: 2;
+    z-index: 6;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    opacity: 0;
 }
 
 .app-menu>* {
@@ -27,6 +26,6 @@
     bottom: 0;
     right: 0;
     left: 0;
-    z-index: 1;
+    z-index: 5;
     background-color: rgba(90, 90, 90, 0.288);
 }
