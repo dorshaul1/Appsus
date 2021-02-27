@@ -38,3 +38,12 @@
 .search-bar select:hover {
     cursor: pointer;
 }
+
+@media(max-width: 450px) {
+    .app-filter input {
+        width: 60%;
+    }
+    .app-filter select {
+        width: 20%;
+    }
+}
