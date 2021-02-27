@@ -19,51 +19,79 @@ const MAIL_KEY = 'mailsDB'
 
 const gMails = [
     {
-        mailAdress: 'Puki@bla.bla',
+        mailAdress: 'bra.pitt@gmail.com',
         id: utilService.makeId(),
-        from: 'Puki',
+        from: 'brad Pitt',
         subject: 'Wassap?',
-        content: 'Pick up!',
+        content: `Hey! 
+            I'm working on a new movie 
+            and i'm so exited,
+                        love brad`,
         sentAt: Date.now(),
         isClicked: false,
         isRead: false,
         isFavorite: false,
     },
     {
-        mailAdress: 'Muki@bla.bla',
+        mailAdress: 'b-yonce@gmail.com',
         id: utilService.makeId(),
-        from: 'Muki',
-        subject: 'Wassap Man?',
+        from: 'beyonce',
+        subject: 'Yo yo!',
         content: `yo yo!
-                wdeefewjnwkefnjekvnewv
-                sacsjckjknwevewv
-                sjkhvewuihwvuiewv4
-                wevjjkev
+                how are you?
+                I recording a new song on Monday
+                Are you coming?
         
-                    jkhhve
-                        schjcs`,
+                    
+                        beyonce`,
         sentAt: Date.now(),
         isClicked: false,
         isRead: false,
         isFavorite: false,
     },
     {
-        mailAdress: 'Dor@bla.bla',
+        mailAdress: 'Dor@gmail.com',
         id: utilService.makeId(),
-        from: 'Dor',
+        from: 'Dor Shaul',
         subject: 'hi?',
-        content: 'how are you?',
+        content: `hi!
+                you are a fullstack developer already?`,
         sentAt: Date.now(),
         isClicked: false,
         isRead: false,
         isFavorite: false,
     },
     {
-        mailAdress: 'Yonatan@bla.bla',
+        mailAdress: 'Dor@gmail.com',
+        id: utilService.makeId(),
+        from: 'Evan You',
+        subject: 'important!',
+        content: `Data is function that return an object!
+                        remember that`,
+        sentAt: Date.now(),
+        isClicked: false,
+        isRead: false,
+        isFavorite: false,
+    },
+    {
+        mailAdress: 'Ede.A@gmail.com',
+        id: utilService.makeId(),
+        from: 'Eden Aran',
+        subject: 'are you OK?',
+        content: `hi Dor and Yonatan!
+                are you solved the problem you had?`,
+        sentAt: Date.now(),
+        isClicked: false,
+        isRead: false,
+        isFavorite: false,
+    },
+    {
+        mailAdress: 'Yonatan@gmail.com',
         id: utilService.makeId(),
         from: 'Yonatan',
-        subject: 'how are you?',
-        content: 'hi!',
+        subject: 'Appsus',
+        content: `My friend and I developed an app called Appsus!
+                    you must see that app`,
         sentAt: Date.now(),
         isClicked: false,
         isRead: false,
@@ -91,14 +119,21 @@ function createMail(mail) {
 }
 
 function query() {
-    return storageService.query(MAIL_KEY)
-        .then((mails) => {
-            if (!mails.length) {
-                utilService.saveToStorage(MAIL_KEY, gMails)
-            }
-            return mails
-        });
+    if (!localStorage.getItem(MAIL_KEY)) {
+        storageService.save(MAIL_KEY, gMails);
+        return Promise.resolve(gMails);
+    }
+    return storageService.query(MAIL_KEY);
 }
+// function query() {
+//     return storageService.query(MAIL_KEY)
+//         .then((mails) => {
+//             if (!mails.length) {
+//                 utilService.saveToStorage(MAIL_KEY, gMails)
+//             }
+//             return mails
+//         });
+// }
 
 function getMailById(mailId) {
     return storageService.get(MAIL_KEY, mailId)
