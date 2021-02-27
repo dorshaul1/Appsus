@@ -11,6 +11,7 @@ export default {
                 <option value="NoteImg">Image</option>
                 <option value="NoteVideo">Video</option>
                 <option value="NoteTodos">List</option>
+                <option value="NoteAudio">Audio</option>
             </select>   
             <i class="search-btn fas fa-search"></i>
         </form>
