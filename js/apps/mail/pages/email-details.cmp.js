@@ -14,8 +14,10 @@ export default {
                         <div class="details-from flex"><h1>{{mail.from}}</h1><p>< {{mail.mailAdress}} ></p></div>
                         <div class="details-date">{{dateToShow}}</div>
                 </div>
-                <div  v-if="!mail.note" class="main-body-content flex center"><pre>{{mail.content}}</pre></div>
-                <component v-if="mail.note" :is="mail.note.type" :note="mail.note"></component>
+                <div class="details-content-container flex align-items center">
+                    <div  v-if="!mail.note" class="main-body-content flex center"><pre>{{mail.content}}</pre></div>
+                    <component class="note-content flex align-items center" v-if="mail.note" :is="mail.note.type" :note="mail.note"></component>
+                </div>
                 <div class="mail-details-options flex space-between">
                     <a class="prev-page-btn flex align-items center"><i class="fas fa-arrow-circle-left" @click="prevPage"></i></a>
                     <a class="delete-mail-btn flex align-items center"><i class="fas fa-trash" @click="deleteMail(mail)"></i></a>

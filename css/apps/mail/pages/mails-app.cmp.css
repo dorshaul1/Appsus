@@ -1,8 +1,8 @@
 .mail-page {
     height: 90vh;
-    /* width: 90%; */
-    padding: 0 10px;
-    justify-content: center;
+    /* width: 100%; */
+    /* padding: 0 10px; */
+    /* justify-content: center; */
 }
 
 .mail-main-container {
@@ -23,4 +23,41 @@
     flex-basis: 20%;
     background-color: #9aa5b1;
     padding: 20px 0;
+    position: relative;
+}
+
+.choosen-option-container {
+    width: 100%;
+}
+
+.options-container-app {
+    width: 100%;
+}
+
+@media screen and (max-width: 1400px) {
+    .mail-page {
+        /* background-color: tomato; */
+    }
+    .mail-main-container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .mail-main-container {
+        flex-direction: column;
+    }
+    .mail-massage-container {
+        flex-basis: 100%;
+    }
+    .choosen-option-container {
+        flex-direction: row;
+    }
+    .mail-options-container {
+        flex-direction: column-reverse;
+        padding: 0;
+    }
+    .options-container-app {
+        flex-direction: row;
+    }
 }

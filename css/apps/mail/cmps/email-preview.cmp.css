@@ -27,6 +27,7 @@
 .mail-prev-date{
     font-size: 0.9rem;
     flex-basis: 10%;
+    /* width: 60px; */
 }
 
 .mail-prev-subject{
@@ -50,4 +51,16 @@
 
 .favorite{
     color: rgb(255, 210, 8);
+}
+
+@media screen and (max-width: 1400px) {
+    .mail-prev-date{
+        font-size: 0.63rem
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .mail-prev-date{
+        font-size: 0.58rem
+    }
 }

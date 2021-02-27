@@ -18,8 +18,10 @@ export default {
             <div class="from-pass-down-prev-content flex space-between align-items">
                     <div class="pass-down-prev-from flex"><h1>{{mail.from}}</h1><p>< {{mail.mailAdress}} ></p></div>
             </div>
-            <div v-if="!mail.note" class="pass-down-prev-body-content flex center"><pre>{{mail.content}}</pre></div>
-            <component v-if="mail.note" :is="mail.note.type" :note="mail.note"></component>
+            <div class="content-container flex align-items center">
+                <div v-if="!mail.note" class="pass-down-prev-body-content flex center"><pre>{{mail.content}}</pre></div>
+                <component class="note-content-pass-down flex align-items center" v-if="mail.note" :is="mail.note.type" :note="mail.note"></component>
+            </div>
 
         </section>
     `,

@@ -1,7 +1,7 @@
 .pass-down-prev-conteainer{
     background-color: #f5f7fa;
     padding: 10px;
-    height: 150px;
+    /* height: 150px; */
     border-bottom: 1px solid rgb(204, 204, 204);
     overflow: auto;
 
@@ -38,4 +38,14 @@
 
 .pass-down-prev-body-content{
     overflow: auto;
+}
+
+.note-content-pass-down{
+    margin: 20px;
+    height: 60%;
+    width: 100%;
+}
+
+.content-container{
+    height: 65%;
 }
